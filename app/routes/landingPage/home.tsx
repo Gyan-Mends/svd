@@ -52,32 +52,32 @@ const Home = () => {
 
     const whyChooseUs = [
         {
-            icon: <Settings className="w-16 h-16 text-blue-500" />,
+            icon: <Settings className="w-16 h-16 customed-text-color" />,
             title: 'Efficiency',
             description: 'We simplify the process of searching, verifying, and retrieving court documents, saving you time.',
         },
         {
-            icon: <Target className="w-16 h-16 text-blue-500" />,
+            icon: <Target className="w-16 h-16 customed-text-color" />,
             title: 'Accuracy',
             description: 'Our direct access to court records ensures reliable and verified information.',
         },
         {
-            icon: <FileCheck className="w-16 h-16 text-blue-500" />,
+            icon: <FileCheck className="w-16 h-16 customed-text-color" />,
             title: 'Compliance',
             description: 'Strengthen due diligence efforts with regulatory-compliant services.',
         },
         {
-            icon: <HandHeart className="w-16 h-16 text-blue-500" />,
+            icon: <HandHeart className="w-16 h-16 customed-text-color" />,
             title: 'Convenience',
             description: 'We simplify the process of searching, verifying, and retrieving court documents.',
         },
         {
-            icon: <Shield className="w-16 h-16 text-blue-500" />,
+            icon: <Shield className="w-16 h-16 customed-text-color" />,
             title: 'Secure Digital Access',
             description: 'We simplify the process of searching, verifying, and retrieving court documents.',
         },
         {
-            icon: <Clock className="w-16 h-16 text-blue-500" />,
+            icon: <Clock className="w-16 h-16 customed-text-color" />,
             title: 'Flexible Payment Options',
             description: 'We simplify the process of searching, verifying, and retrieving court documents.',
         }
@@ -88,28 +88,28 @@ const Home = () => {
             number: '1',
             title: 'Make a Request',
             description: '• Contact us via WhatsApp, phone call, email, or SMS.\n• Provide details of your search, document request, or verification need.',
-            icon: <MessageCircle className="w-8 h-8 text-blue-500" />,
+            icon: <MessageCircle className="w-8 h-8 customed-text-color" />,
             position: 'bottom-left'
         },
         {
             number: '2',
             title: 'Evaluation & Invoice Generation',
             description: '• Our team will assess your request and provide an invoice for payment.',
-            icon: <FileCheck className="w-8 h-8 text-blue-500" />,
+            icon: <FileCheck className="w-8 h-8 customed-text-color" />,
             position: 'top-left'
         },
         {
             number: '3',
             title: 'Payment & Processing',
             description: '• Our team will assess your request and provide an invoice for payment.',
-            icon: <Smartphone className="w-8 h-8 text-blue-500" />,
+            icon: <Smartphone className="w-8 h-8 customed-text-color" />,
             position: 'bottom-center'
         },
         {
             number: '4',
             title: 'Receive Your Results',
             description: '• Get your verified court documents or search results via email, WhatsApp, or our online platform.',
-            icon: <Mail className="w-8 h-8 text-blue-500" />,
+            icon: <Mail className="w-8 h-8 customed-text-color" />,
             position: 'top-right'
         }
     ]

@@ -102,22 +102,20 @@ const Home = () => {
     const beneficiaries = [
 
         {
-            title: 'Banks & Financial Institutions',
+            title: 'Banks & Financial ',
+            subtitle: 'Institutions',
             image: image2,
             bgColor: 'bg-purple-100',
-            description: 'Enhance due diligence processes and compliance verification for financial transactions.'
         },
         {
             title: 'Insurance Companies',
             image: image3,
             bgColor: 'bg-yellow-100',
-            description: 'Verify claims and conduct thorough background checks with comprehensive court data.'
         },
         {
             title: 'Researchers & Academics',
             image: image,
             bgColor: 'bg-pink-100',
-            description: 'Access reliable court data for academic research and policy development studies.'
         }
     ]
 
@@ -289,10 +287,11 @@ const Home = () => {
                             {/* CTA Buttons with Staggered Animation */}
                             <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 delay-700 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                                 }`}>
-                                <a href="/requestForm/request" className={`customed-button text-sm hover:bg-[#2a9bd4] hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-lg px-8 py-4 ${isVisible ? 'animate-bounce-in' : ''} text-center`}>
+                                <a href="/requestForm/request" className={`customed-button text-md py-2 hover:bg-[#2a9bd4] hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-lg px-8 py-4 ${isVisible ? 'animate-bounce-in' : ''} text-center`}>
                                     Request Court Search
+                                    {/* icon */}
                                 </a>
-                                <a href="/pricing/pricing" className={`customed-bordered-button border-white transform hover:scale-105 transition-all duration-300 !text-white px-8 py-4 text-sm delay-200 ${isVisible ? 'animate-slide-in-right' : ''} text-center`}>
+                                <a href="/pricing" className={`customed-bordered-button !text-md py-2 border-white transform hover:scale-105 transition-all duration-300 !text-white px-8 py-4  delay-200 ${isVisible ? 'animate-slide-in-right' : ''} text-center`}>
                                     View Pricing
                                 </a>
                             </div>
@@ -327,13 +326,13 @@ const Home = () => {
             </div>
 
             {/* Services Section with Scroll Animations */}
-            <div className='bg-gradient-to-r from-blue-50 to-white h-screen'>
+            <div className='bg-gradient-to-r from-blue-50 to-white h-screen '>
 
                 <section id="services" ref={servicesRef} className="container mx-auto px-4 py-16 min-h-screen flex flex-col gap-12 ">
                     {/* Services Title with Scroll Animation */}
                     <h1
                         ref={servicesTitleRef}
-                        className={`text-5xl font-bold text-center transition-all duration-1000 transform ${isElementVisible('services-title')
+                        className={`text-5xl customed-text-color font-bold text-center transition-all duration-1000 transform ${isElementVisible('services-title')
                             ? 'translate-y-0 opacity-100 scale-100'
                             : 'translate-y-20 opacity-0 scale-95'
                             }`}
@@ -349,10 +348,10 @@ const Home = () => {
                             : 'translate-y-20 opacity-0'
                             }`}
                     >
-                        <p className="text-lg md:text-xl text-gray-600 mb-4">
+                        <p className="text-md md:text-md text-gray-600 ">
                             We offer a Subscription-Based and On-Demand Search, Document, and Verification (SVD) service
                         </p>
-                        <p className="text-lg md:text-xl text-gray-600">
+                        <p className="text-md md:text-md text-gray-600">
                             to help businesses and individuals access, verify, and request court-related documents efficiently.
                         </p>
                     </div>
@@ -383,7 +382,7 @@ const Home = () => {
                                 </div>
 
                                 {/* Enhanced Button with Hover Effects */}
-                                <button className="customed-button w-full flex justify-between items-center group hover:shadow-xl transition-all duration-300">
+                                <button className="customed-button w-full text- py-2 flex justify-between items-center group hover:shadow-xl transition-all duration-300">
                                     <span className="group-hover:translate-x-1 transition-transform duration-300">
                                         {service.title}
                                     </span>
@@ -396,11 +395,11 @@ const Home = () => {
             </div>
 
             {/* Why Choose DL SVD Section with Scroll Animations */}
-            <section id="about" ref={whyChooseUsRef} className="container mx-auto px-4 py-16 min-h-screen flex flex-col gap-12">
+            <section id="about" ref={whyChooseUsRef} className="container mx-auto px-4 !py-40 min-h-screen flex flex-col gap-12">
                 {/* Why Choose Us Title with Scroll Animation */}
                 <h1
                     ref={whyChooseUsTitleRef}
-                    className={`text-5xl font-bold text-center transition-all duration-1000 transform ${isElementVisible('why-choose-us-title')
+                    className={`text-5xl font-bold customed-text-color text-center transition-all duration-1000 transform ${isElementVisible('why-choose-us-title')
                         ? 'translate-y-0 opacity-100 scale-100'
                         : 'translate-y-20 opacity-0 scale-95'
                         }`}
@@ -446,13 +445,13 @@ const Home = () => {
             {/* How It Works Section with Scroll Animations */}
             <section id="how-it-works" ref={howItWorksRef} className="relative py-10 px-10 md:py-20 px-4 min-h-screen overflow-hidden ">
                 {/* Large Blue Circular Background Element - Responsive */}
-                <div className="absolute top-0 mt-10 md:mt-20 right-0 w-[400px] h-[400px] md:w-[700px] md:h-[700px] bg-blue-400 rounded-full opacity-20 md:opacity-30 transform translate-x-1/4 -translate-y-1/4"></div>
+                <div className="absolute top-0 mt-10 md:mt-20 right-0 w-[400px] h-[400px] md:w-[700px] md:h-[700px] bg-[#269DD4] rounded-full opacity-20 md:opacity-30 transform translate-x-1/4 -translate-y-1/4"></div>
 
                 <div className="container mx-auto relative z-10">
                     {/* How It Works Title with Scroll Animation - Responsive */}
                     <h1
                         ref={howItWorksTitleRef}
-                        className={`text-3xl md:text-5xl font-bold text-blue-600 mb-8 md:mb-16 text-center md:text-left transition-all duration-1000 transform ${isElementVisible('how-it-works-title')
+                        className={`text-3xl md:text-5xl font-bold customed-text-color mb-8 md:mb-16 text-center md:text-left transition-all duration-1000 transform ${isElementVisible('how-it-works-title')
                             ? 'translate-y-0 opacity-100 scale-100'
                             : 'translate-y-20 opacity-0 scale-95'
                             }`}
@@ -706,20 +705,21 @@ const Home = () => {
                         </div>
 
                         {/* Title */}
-                        <h3 className="font-bold text-lg md:text-xl text-gray-800 mb-3">
-                            Banks & Financial Institutions
+                        <h3 className="font-bold text-lg md:text-2xl text-gray-800 mb-3">
+                            Law Firm & Legal 
+                        </h3>
+                        <h3 className="font-bold text-lg md:text-2xl text-gray-800 mb-3">
+                        Department
                         </h3>
 
                         {/* Description */}
-                        <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                            Enhance due diligence processes and compliance verification for financial transactions.
-                        </p>
+                       
                     </div>
                     <div className='flex justify-center items-center'>
-                        <div>
+                        <div className='flex flex-col gap-4'>
                             <h1
                                 ref={whoBenefitTitleRef}
-                                className={`text-3xl md:text-5xl font-bold text-blue-600 text-center md:text-left transition-all duration-1000 transform ${isElementVisible('who-benefit-title')
+                                className={`text-3xl md:text-5xl font-bold customed-text-color text-center md:text-left transition-all duration-1000 transform ${isElementVisible('who-benefit-title')
                                     ? 'translate-y-0 opacity-100 scale-100'
                                     : 'translate-y-20 opacity-0 scale-95'
                                     }`}
@@ -779,8 +779,8 @@ const Home = () => {
                             </h3>
 
                             {/* Description */}
-                            <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                                {beneficiary.description}
+                            <p className="font-bold text-lg md:text-xl text-gray-800 mb-3">
+                                {beneficiary.subtitle}
                             </p>
                         </div>
                     ))}
@@ -793,13 +793,13 @@ const Home = () => {
                     {/* Our Commitment Title with Scroll Animation */}
                     <h1 
                         ref={commitmentTitleRef}
-                        className={`text-3xl md:text-5xl font-bold text-blue-600 text-center transition-all duration-1000 transform ${isElementVisible('commitment-title')
+                        className={`text-3xl md:text-5xl font-bold mb-20 customed-text-color text-center transition-all duration-1000 transform ${isElementVisible('commitment-title')
                             ? 'translate-y-0 opacity-100 scale-100' 
                             : 'translate-y-20 opacity-0 scale-95'
                         }`}
                     >
                         OUR COMMITMENT<br />
-                        <span className="text-blue-600">TO EXCELLENCE</span>
+                        <span className="customed-text-color">TO EXCELLENCE</span>
                     </h1>
 
                     {/* Commitment Cards - Responsive Layout */}
@@ -810,7 +810,7 @@ const Home = () => {
                        
 
                         {/* Desktop Layout - Two Columns with Staggered Positioning */}
-                        <div className=" md:flex justify-between gap-8 lg:gap-12 px-4 lg:px-10 relative">
+                        <div className=" md:flex justify-between gap-8 lg:gap-40 px-4  relative">
                             {/* Left Column */}
                             <div className="flex flex-col gap-20 lg:gap-32 w-1/2">
                                 <div 
@@ -822,7 +822,7 @@ const Home = () => {
                                         transitionDelay: isElementVisible('commitment-cards') ? '0ms' : '0ms'
                                     }}
                                 >
-                                    <h3 className="text-2xl lg:text-4xl font-bold text-blue-600 leading-tight">
+                                    <h3 className="text-2xl lg:text-4xl font-bold text-[#32ADE6] leading-tight">
                                         Direct Court Access &<br />
                                         Legal Expertise
                                     </h3>
@@ -840,7 +840,7 @@ const Home = () => {
                                         transitionDelay: isElementVisible('commitment-cards') ? '400ms' : '0ms'
                                     }}
                                 >
-                                    <h3 className="text-2xl lg:text-4xl font-bold text-blue-600 leading-tight">
+                                    <h3 className="text-2xl lg:text-4xl font-bold text-[#32ADE6] leading-tight">
                                         Fast Turnaround &<br />
                                         Priority Processing
                                     </h3>
@@ -861,7 +861,7 @@ const Home = () => {
                                         transitionDelay: isElementVisible('commitment-cards') ? '200ms' : '0ms'
                                     }}
                                 >
-                                    <h3 className="text-2xl lg:text-4xl font-bold text-blue-600 leading-tight">
+                                    <h3 className="text-2xl lg:text-4xl font-bold text-[#32ADE6] leading-tight">
                                         Technology-Driven<br />
                                         Efficiency
                                     </h3>
@@ -879,7 +879,7 @@ const Home = () => {
                                         transitionDelay: isElementVisible('commitment-cards') ? '600ms' : '0ms'
                                     }}
                                 >
-                                    <h3 className="text-2xl lg:text-4xl font-bold text-blue-600 leading-tight">
+                                    <h3 className="text-2xl lg:text-4xl font-bold text-[#32ADE6] leading-tight">
                                         Data Security &<br />
                                         Confidentiality
                                     </h3>
@@ -894,7 +894,7 @@ const Home = () => {
             </section>
 
             {/* Footer Section */}
-            <footer className="bg-gray-900 text-white">
+            <footer className=" ">
                 {/* Main Footer Content */}
                 <div className="container mx-auto px-4 py-16">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
@@ -902,25 +902,25 @@ const Home = () => {
                         <div className="lg:col-span-1">
                             <div className="flex items-center space-x-2 mb-6">
                                 <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                                    <span className="text-white font-bold text-xl">DL</span>
+                                    <span className=" font-bold text-xl">DL</span>
                                 </div>
                                 <span className="text-2xl font-bold">SVD</span>
                             </div>
-                            <p className="text-gray-300 mb-6 leading-relaxed">
+                            <p className=" mb-6 leading-relaxed">
                                 Your trusted partner for comprehensive court search, document verification, and legal data access services across Ghana.
                             </p>
                             <div className="flex space-x-4">
                                 <a href="#" className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors duration-300">
-                                    <span className="text-sm font-bold">f</span>
+                                    <span className="text-sm font-bold text-white">f</span>
                                 </a>
                                 <a href="#" className="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors duration-300">
-                                    <span className="text-sm font-bold">t</span>
+                                    <span className="text-sm font-bold text-white">t</span>
                                 </a>
                                 <a href="#" className="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors duration-300">
-                                    <span className="text-sm font-bold">in</span>
+                                    <span className="text-sm font-bold text-white">in</span>
                                 </a>
                                 <a href="#" className="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors duration-300">
-                                    <span className="text-sm font-bold">ig</span>
+                                    <span className="text-sm font-bold text-white">ig</span>
                                 </a>
                             </div>
                         </div>
@@ -929,12 +929,12 @@ const Home = () => {
                         <div>
                             <h3 className="text-xl font-bold mb-6">Quick Links</h3>
                             <ul className="space-y-3">
-                                <li><a href="#home" className="text-gray-300 hover:text-white transition-colors duration-300">Home</a></li>
-                                <li><a href="#services" className="text-gray-300 hover:text-white transition-colors duration-300">Our Services</a></li>
-                                <li><a href="#about" className="text-gray-300 hover:text-white transition-colors duration-300">Why Choose Us</a></li>
-                                <li><a href="#how-it-works" className="text-gray-300 hover:text-white transition-colors duration-300">How It Works</a></li>
-                                <li><a href="#who-can-benefit" className="text-gray-300 hover:text-white transition-colors duration-300">Who Can Benefit</a></li>
-                                <li><a href="#our-commitment" className="text-gray-300 hover:text-white transition-colors duration-300">Our Commitment</a></li>
+                                <li><a href="#home" className=" hover:[#32ADE6] transition-colors duration-300">Home</a></li>
+                                <li><a href="#services" className=" hover:[#32ADE6] transition-colors duration-300">Our Services</a></li>
+                                <li><a href="#about" className=" hover:[#32ADE6] transition-colors duration-300">Why Choose Us</a></li>
+                                <li><a href="#how-it-works" className=" hover:[#32ADE6] transition-colors duration-300">How It Works</a></li>
+                                <li><a href="#who-can-benefit" className=" hover:[#32ADE6] transition-colors duration-300">Who Can Benefit</a></li>
+                                <li><a href="#our-commitment" className=" hover:text-white transition-colors duration-300">Our Commitment</a></li>
                             </ul>
                         </div>
 
@@ -942,12 +942,12 @@ const Home = () => {
                         <div>
                             <h3 className="text-xl font-bold mb-6">Our Services</h3>
                             <ul className="space-y-3">
-                                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">Court Search</a></li>
-                                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">Document Verification</a></li>
-                                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">Legal Data Access</a></li>
-                                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">Background Checks</a></li>
-                                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">Compliance Services</a></li>
-                                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">Priority Processing</a></li>
+                                <li><a href="#" className=" hover:[#32ADE6] transition-colors duration-300">Court Search</a></li>
+                                <li><a href="#" className=" hover:[#32ADE6] transition-colors duration-300">Document Verification</a></li>
+                                <li><a href="#" className=" hover:[#32ADE6] transition-colors duration-300">Legal Data Access</a></li>
+                                <li><a href="#" className=" hover:[#32ADE6] transition-colors duration-300">Background Checks</a></li>
+                                <li><a href="#" className=" hover:[#32ADE6] transition-colors duration-300">Compliance Services</a></li>
+                                <li><a href="#" className=" hover:[#32ADE6] transition-colors duration-300">Priority Processing</a></li>
                             </ul>
                         </div>
 
@@ -962,8 +962,8 @@ const Home = () => {
                                         </svg>
                                     </div>
                                     <div>
-                                        <p className="text-gray-300">123 Legal District</p>
-                                        <p className="text-gray-300">Accra, Ghana</p>
+                                        <p className="">123 Legal District</p>
+                                        <p className="">Accra, Ghana</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center space-x-3">
@@ -972,7 +972,7 @@ const Home = () => {
                                             <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                                         </svg>
                                     </div>
-                                    <p className="text-gray-300">+233 XX XXX XXXX</p>
+                                    <p className="">+233 XX XXX XXXX</p>
                                 </div>
                                 <div className="flex items-center space-x-3">
                                     <div className="w-5 h-5 text-blue-400">
@@ -981,7 +981,7 @@ const Home = () => {
                                             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                                         </svg>
                                     </div>
-                                    <p className="text-gray-300">info@dlsvd.com</p>
+                                    <p className="">info@dlsvd.com</p>
                                 </div>
                                 <div className="flex items-center space-x-3">
                                     <div className="w-5 h-5 text-blue-400">
@@ -990,8 +990,8 @@ const Home = () => {
                                         </svg>
                                     </div>
                                     <div>
-                                        <p className="text-gray-300">Mon - Fri: 8:00 AM - 6:00 PM</p>
-                                        <p className="text-gray-300">Sat: 9:00 AM - 2:00 PM</p>
+                                        <p className="">Mon - Fri: 8:00 AM - 6:00 PM</p>
+                                        <p className="">Sat: 9:00 AM - 2:00 PM</p>
                                     </div>
                                 </div>
                             </div>
@@ -1007,9 +1007,9 @@ const Home = () => {
                                 © 2024 DL SVD. All rights reserved.
                             </div>
                             <div className="flex space-x-6 text-sm">
-                                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Privacy Policy</a>
-                                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Terms of Service</a>
-                                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Cookie Policy</a>
+                                <a href="#" className=" hover:text-white transition-colors duration-300">Privacy Policy</a>
+                                <a href="#" className=" hover:text-white transition-colors duration-300">Terms of Service</a>
+                                <a href="#" className=" hover:text-white transition-colors duration-300">Cookie Policy</a>
                             </div>
                         </div>
                     </div>

@@ -63,10 +63,20 @@ export default function Navigation() {
                         <button className="customed-button">
                             <a href="#contact" onClick={(e) => handleSmoothScroll(e, '#contact', false)}>Login</a>
                         </button>
-                        
-
-
                     </nav>
+
+                    {/* Mobile Menu Button */}
+                    <button
+                        className="lg:hidden p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200"
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-label="Toggle mobile menu"
+                    >
+                        {mobileMenuOpen ? (
+                            <X className="w-6 h-6" />
+                        ) : (
+                            <Menu className="w-6 h-6" />
+                        )}
+                    </button>
                 </div>
 
                 {/* Mobile Navigation */}
@@ -83,6 +93,16 @@ export default function Navigation() {
                                     {item.name}
                                 </a>
                             ))}
+                            
+                            {/* Mobile Action Buttons */}
+                            <div className="flex flex-col space-y-3 pt-4 border-t">
+                                <button className="customed-bordered-button text-center">
+                                    <a href="#contact" onClick={(e) => handleSmoothScroll(e, '#contact', false)}>Contact Us</a>
+                                </button>
+                                <button className="customed-button text-center">
+                                    <a href="#contact" onClick={(e) => handleSmoothScroll(e, '#contact', false)}>Login</a>
+                                </button>
+                            </div>
                         </div>
                     </nav>
                 )}

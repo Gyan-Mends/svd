@@ -21,17 +21,17 @@ const Home = () => {
         {
             image: image,
             title: 'Court Search',
-            link: '/court-search',
+            link: '/requestForm/request?service=court-search',
         },
         {
             image: image2,
             title: 'Request for Court Documents',
-            link: '/document-verification',
+            link: '/requestForm/request?service=document-request',
         },
         {
             image: image3,
             title: 'Verify of Court Documents',
-            link: '/on-demand-search',
+            link: '/requestForm/request?service=document-verification',
         },
     ]
 
@@ -382,12 +382,12 @@ const Home = () => {
                                 </div>
 
                                 {/* Enhanced Button with Hover Effects */}
-                                <button className="customed-button w-full text- py-2 flex justify-between items-center group hover:shadow-xl transition-all duration-300">
+                                <a href={service.link} className="customed-button w-full text- py-2 flex justify-between items-center group hover:shadow-xl transition-all duration-300">
                                     <span className="group-hover:translate-x-1 transition-transform duration-300">
                                         {service.title}
                                     </span>
                                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                                </button>
+                                </a>
                             </div>
                         ))}
                     </div>
@@ -683,17 +683,15 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Who Can Benefit Section with Scroll Animations */}
-            <section id="who-can-benefit" ref={whoBenefitRef} className="container mx-auto px-4 py-40  min-h-screen flex flex-col gap-40">
+            {/* Who Can Benefit Section with Scroll Animations - Fixed Mobile Layout */}
+            <section id="who-can-benefit" ref={whoBenefitRef} className="container mx-auto px-4 py-16 md:py-40 min-h-screen flex flex-col gap-12 md:gap-40">
 
-                <div className='flex  gap-80'>
+                <div className='flex flex-col lg:flex-row gap-12 lg:gap-80 items-center'>
                     <div
-
-                        className={`bg-primary-100 rounded-2xl p-6 md:p-8 flex flex-col items-center justify-center hover:shadow-lg w-[30vw] transition-all duration-1000 transform ${isElementVisible('who-benefit-cards')
+                        className={`bg-primary-100 rounded-2xl p-6 md:p-8 flex flex-col items-center justify-center hover:shadow-lg w-full lg:w-[30vw] transition-all duration-1000 transform ${isElementVisible('who-benefit-cards')
                             ? 'translate-y-0 opacity-100 scale-100'
                             : 'translate-y-20 opacity-0 scale-95'
                             }`}
-
                     >
                         {/* Circular Image */}
                         <div className="w-24 h-24 md:w-32 md:h-32 mb-4 md:mb-6 overflow-hidden rounded-full bg-white shadow-md">
@@ -705,21 +703,19 @@ const Home = () => {
                         </div>
 
                         {/* Title */}
-                        <h3 className="font-bold text-lg md:text-2xl text-gray-800 mb-3">
+                        <h3 className="font-bold text-lg md:text-2xl text-gray-800 mb-3 text-center">
                             Law Firm & Legal 
                         </h3>
-                        <h3 className="font-bold text-lg md:text-2xl text-gray-800 mb-3">
+                        <h3 className="font-bold text-lg md:text-2xl text-gray-800 mb-3 text-center">
                         Department
                         </h3>
-
-                        {/* Description */}
-                       
                     </div>
-                    <div className='flex justify-center items-center'>
-                        <div className='flex flex-col gap-4'>
+                    
+                    <div className='flex justify-center items-center w-full lg:w-auto'>
+                        <div className='flex flex-col gap-4 text-center lg:text-left'>
                             <h1
                                 ref={whoBenefitTitleRef}
-                                className={`text-3xl md:text-5xl font-bold customed-text-color text-center md:text-left transition-all duration-1000 transform ${isElementVisible('who-benefit-title')
+                                className={`text-3xl md:text-5xl font-bold customed-text-color transition-all duration-1000 transform ${isElementVisible('who-benefit-title')
                                     ? 'translate-y-0 opacity-100 scale-100'
                                     : 'translate-y-20 opacity-0 scale-95'
                                     }`}
@@ -730,7 +726,7 @@ const Home = () => {
                             {/* Description with Scroll Animation */}
                             <div
                                 ref={whoBenefitDescRef}
-                                className={`text-left md:text-left max-w-2xl transition-all duration-1000 delay-200 transform ${isElementVisible('who-benefit-desc')
+                                className={`max-w-2xl transition-all duration-1000 delay-200 transform ${isElementVisible('who-benefit-desc')
                                     ? 'translate-y-0 opacity-100'
                                     : 'translate-y-20 opacity-0'
                                     }`}
@@ -742,11 +738,7 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-
-
                 </div>
-                {/* Who Can Benefit Title with Scroll Animation */}
-
 
                 {/* Beneficiary Cards with Staggered Scroll Animation */}
                 <div
@@ -787,13 +779,13 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Our Commitment to Excellence Section with Scroll Animations */}
+            {/* Our Commitment to Excellence Section with Scroll Animations - Fixed Mobile Layout */}
             <section id="our-commitment" ref={commitmentRef} className="relative py-16 px-4 min-h-screen bg-gradient-to-br from-gray-50 to-white">
                 <div className="container mx-auto flex flex-col gap-12">
                     {/* Our Commitment Title with Scroll Animation */}
                     <h1 
                         ref={commitmentTitleRef}
-                        className={`text-3xl md:text-5xl font-bold mb-20 customed-text-color text-center transition-all duration-1000 transform ${isElementVisible('commitment-title')
+                        className={`text-3xl md:text-5xl font-bold mb-8 md:mb-20 customed-text-color text-center transition-all duration-1000 transform ${isElementVisible('commitment-title')
                             ? 'translate-y-0 opacity-100 scale-100' 
                             : 'translate-y-20 opacity-0 scale-95'
                         }`}
@@ -802,15 +794,36 @@ const Home = () => {
                         <span className="customed-text-color">TO EXCELLENCE</span>
                     </h1>
 
-                    {/* Commitment Cards - Responsive Layout */}
+                    {/* Commitment Cards - Fixed Mobile Layout */}
                     <div 
                         ref={commitmentCardsRef}
                         className="w-full max-w-7xl mx-auto"
                     >
-                       
+                        {/* Mobile Layout - Stacked */}
+                        <div className="md:hidden space-y-8">
+                            {commitments.map((commitment, index) => (
+                                <div 
+                                    key={index}
+                                    className={`flex flex-col gap-4 p-4 transition-all duration-1000 transform ${isElementVisible('commitment-cards')
+                                        ? 'translate-y-0 opacity-100 scale-100'
+                                        : 'translate-y-20 opacity-0 scale-95'
+                                    }`}
+                                    style={{
+                                        transitionDelay: isElementVisible('commitment-cards') ? `${index * 200}ms` : '0ms'
+                                    }}
+                                >
+                                    <h3 className="text-xl font-bold text-[#32ADE6] leading-tight">
+                                        {commitment.title}
+                                    </h3>
+                                    <p className="text-gray-600 text-base leading-relaxed">
+                                        {commitment.description}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
 
                         {/* Desktop Layout - Two Columns with Staggered Positioning */}
-                        <div className=" md:flex justify-between gap-8 lg:gap-40 px-4  relative">
+                        <div className="hidden md:flex justify-between gap-8 lg:gap-40 px-4 relative">
                             {/* Left Column */}
                             <div className="flex flex-col gap-20 lg:gap-32 w-1/2">
                                 <div 

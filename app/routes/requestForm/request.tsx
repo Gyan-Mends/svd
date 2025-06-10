@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Upload, FileText, Check } from 'lucide-react';
 import heroImage from '~/components/images/image1.avif'
 
@@ -15,6 +15,44 @@ const RequestForm = () => {
     });
 
     const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
+    const [serviceType, setServiceType] = useState('court-search'); // Default service type
+
+    // Get service type from URL parameters
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const service = params.get('service');
+        if (service) {
+            setServiceType(service);
+        }
+    }, []);
+
+    // Get service-specific content
+    const getServiceContent = () => {
+        switch (serviceType) {
+            case 'court-search':
+                return {
+                    title: 'Request Court Search',
+                    description: 'Fill out the form below to request court searches',
+                };
+            case 'document-request':
+                return {
+                    title: 'Request for Court Documents',
+                    description: 'Fill out the form below to request court documents',
+                };
+            case 'document-verification':
+                return {
+                    title: 'Verify Court Documents',
+                    description: 'Fill out the form below to verify court documents',
+                };
+            default:
+                return {
+                    title: 'Request Court Search',
+                    description: 'Fill out the form below to request court searches',
+                };
+        }
+    };
+
+    const serviceContent = getServiceContent();
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value, type } = e.target;
@@ -55,36 +93,36 @@ const RequestForm = () => {
             </div>
 
 
-            <div className="flex px-60  relative z-10 mt-40">
+            <div className="flex flex-col lg:flex-row px-4 lg:px-60 relative z-10 mt-20 lg:mt-40">
                 {/* Left Sidebar */}
-                <div className="w-1/3 bg-gradient-to-br rounded-tl-2xl rounded-bl-2xl  from-blue-400 to-blue-600 flex items-center justify-center">
+                <div className="w-full lg:w-1/3 bg-gradient-to-br rounded-t-2xl lg:rounded-tl-2xl lg:rounded-bl-2xl lg:rounded-tr-none from-blue-400 to-blue-600 flex items-center justify-center py-8 lg:py-0">
                     <div className="text-center text-white px-8">
                         <div className="mb-8">
                             <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <FileText className="w-10 h-10 text-white" />
                             </div>
                         </div>
-                        <h1 className="text-3xl font-bold mb-4">
+                        <h1 className="text-2xl lg:text-3xl font-bold mb-4">
                             Welcome to<br />
-                            <span className="text-4xl">SVD Services</span>
+                            <span className="text-3xl lg:text-4xl">SVD Services</span>
                         </h1>
-                        <p className="text-blue-100 text-lg leading-relaxed">
+                        <p className="text-blue-100 text-base lg:text-lg leading-relaxed">
                             Your trusted partner for comprehensive court search, document verification, and legal data access services.
                         </p>
                     </div>
                 </div>
 
                 {/* Right Form Section */}
-                <div className="flex-1 flex items-center rounded-tr-2xl rounded-br-2xl  bg-white justify-center p-8">
+                <div className="flex-1 flex items-center rounded-b-2xl lg:rounded-tr-2xl lg:rounded-br-2xl lg:rounded-bl-none bg-white justify-center p-4 lg:p-8">
                     <div className="w-full max-w-2xl">
                         {/* Header */}
                         <div className="text-center mb-8">
-                            <h2 className="text-3xl font-bold text-gray-800 mb-2">Request Court Searches</h2>
-                            <p className="text-gray-600">Fill out the form below to request court document searches</p>
+                            <h2 className="text-3xl font-bold text-gray-800 mb-2">{serviceContent.title}</h2>
+                            <p className="text-gray-600">{serviceContent.description}</p>
                         </div>
 
                         {/* Form */}
-                        <form onSubmit={handleSubmit} className="bg-white   p-8 space-y-6">
+                        <form onSubmit={handleSubmit} className="bg-white p-4 lg:p-8 space-y-6">
                             {/* Personal Information Section */}
                             <div>
                                 <h3 className="text-lg font-semibold text-blue-600 mb-4">Your Personal Information</h3>

@@ -4,6 +4,21 @@ import image from '~/components/images/image1.avif';
 import image2 from '~/components/images/image2.avif';
 import image3 from '~/components/images/image3.avif';
 import { ArrowRight, Settings, Target, FileCheck, HandHeart, Shield, Clock, MessageCircle, Phone, Mail, Smartphone } from 'lucide-react';
+import type { MetaFunction } from 'react-router';
+
+// meta for the page
+export const meta: MetaFunction = () => {
+    return [
+        { title: "DL SVD | Home" },
+        { name: "description", content: "DL SVD is a platform that allows you to search for court documents and verify them." },
+        { name: "keywords", content: "DL SVD, court documents, verification, search, legal technology" },
+        { name: "author", content: "DL SVD" },
+        { name: "robots", content: "index, follow" },
+        { name: "viewport", content: "width=device-width, initial-scale=1.0" },
+        { name: "og:title", content: "DL SVD | Home" },
+        { name: "og:description", content: "DL SVD is a platform that allows you to search for court documents and verify them." },
+    ];
+};
 
 const Home = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -326,13 +341,13 @@ const Home = () => {
             </div>
 
             {/* Services Section with Scroll Animations */}
-            <div className='bg-gradient-to-r from-blue-50 to-white h-screen '>
+            <div className='bg-gradient-to-r from-blue-50 to-white min-h-screen'>
 
-                <section id="services" ref={servicesRef} className="container mx-auto px-4 py-16 min-h-screen flex flex-col gap-12 ">
+                <section id="services" ref={servicesRef} className="container mx-auto px-4 py-8 md:py-16 flex flex-col gap-8 md:gap-12">
                     {/* Services Title with Scroll Animation */}
                     <h1
                         ref={servicesTitleRef}
-                        className={`text-5xl customed-text-color font-bold text-center transition-all duration-1000 transform ${isElementVisible('services-title')
+                        className={`text-3xl md:text-5xl customed-text-color font-bold text-center transition-all duration-1000 transform ${isElementVisible('services-title')
                             ? 'translate-y-0 opacity-100 scale-100'
                             : 'translate-y-20 opacity-0 scale-95'
                             }`}
@@ -359,12 +374,12 @@ const Home = () => {
                     {/* Service Cards with Staggered Scroll Animation */}
                     <div
                         ref={serviceCardsRef}
-                        className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                        className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
                     >
                         {services.map((service, index) => (
                             <div
                                 key={index}
-                                className={`flex flex-col gap-4 items-center justify-center transform transition-all duration-1000 ${isElementVisible('service-cards')
+                                className={`flex flex-col gap-3 md:gap-4 items-center justify-center transform transition-all duration-1000 ${isElementVisible('service-cards')
                                     ? 'translate-y-0 opacity-100 scale-100'
                                     : 'translate-y-20 opacity-0 scale-95'
                                     }`}
@@ -372,17 +387,17 @@ const Home = () => {
                                     transitionDelay: isElementVisible('service-cards') ? `${index * 200}ms` : '0ms'
                                 }}
                             >
-                                <div className="relative group overflow-hidden rounded-lg">
+                                <div className="relative group overflow-hidden rounded-lg w-full">
                                     <img
                                         src={service.image}
                                         alt={service.title}
-                                        className="w-full h-[50vh] rounded-lg object-cover transition-transform duration-500 group-hover:scale-110"
+                                        className="w-full h-[30vh] md:h-[50vh] rounded-lg object-cover transition-transform duration-500 group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 </div>
 
                                 {/* Enhanced Button with Hover Effects */}
-                                <a href={service.link} className="customed-button w-full text- py-2 flex justify-between items-center group hover:shadow-xl transition-all duration-300">
+                                <a href={service.link} className="customed-button w-full text-sm md:text-base py-2 flex justify-between items-center group hover:shadow-xl transition-all duration-300">
                                     <span className="group-hover:translate-x-1 transition-transform duration-300">
                                         {service.title}
                                     </span>
@@ -395,11 +410,11 @@ const Home = () => {
             </div>
 
             {/* Why Choose DL SVD Section with Scroll Animations */}
-            <section id="about" ref={whyChooseUsRef} className="container mx-auto px-4 !py-40 min-h-screen flex flex-col gap-12">
+            <section id="about" ref={whyChooseUsRef} className="container mx-auto px-4 py-12 md:py-40 flex flex-col gap-8 md:gap-12">
                 {/* Why Choose Us Title with Scroll Animation */}
                 <h1
                     ref={whyChooseUsTitleRef}
-                    className={`text-5xl font-bold customed-text-color text-center transition-all duration-1000 transform ${isElementVisible('why-choose-us-title')
+                    className={`text-3xl md:text-5xl font-bold customed-text-color text-center transition-all duration-1000 transform ${isElementVisible('why-choose-us-title')
                         ? 'translate-y-0 opacity-100 scale-100'
                         : 'translate-y-20 opacity-0 scale-95'
                         }`}
@@ -410,12 +425,12 @@ const Home = () => {
                 {/* Why Choose Us Cards with Staggered Scroll Animation */}
                 <div
                     ref={whyChooseUsCardsRef}
-                    className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                    className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
                 >
                     {whyChooseUs.map((item, index) => (
                         <div
                             key={index}
-                            className={`flex flex-col gap-6 items-center justify-center text-center p-6 rounded-lg hover:shadow-lg transition-all duration-1000 transform ${isElementVisible('why-choose-us-cards')
+                            className={`flex flex-col gap-4 md:gap-6 items-center justify-center text-center p-4 md:p-6 rounded-lg hover:shadow-lg transition-all duration-1000 transform ${isElementVisible('why-choose-us-cards')
                                 ? 'translate-y-0 opacity-100 scale-100'
                                 : 'translate-y-20 opacity-0 scale-95'
                                 }`}
@@ -429,11 +444,11 @@ const Home = () => {
                             </div>
 
                             {/* Title and Description */}
-                            <div className="flex flex-col gap-4 items-center justify-center">
-                                <h3 className="font-bold text-3xl text-gray-800">
+                            <div className="flex flex-col gap-3 md:gap-4 items-center justify-center">
+                                <h3 className="font-bold text-xl md:text-3xl text-gray-800">
                                     {item.title}
                                 </h3>
-                                <p className="text-center text-gray-600 text-lg leading-relaxed max-w-sm">
+                                <p className="text-center text-gray-600 text-base md:text-lg leading-relaxed max-w-sm">
                                     {item.description}
                                 </p>
                             </div>
@@ -443,7 +458,7 @@ const Home = () => {
             </section>
 
             {/* How It Works Section with Scroll Animations */}
-            <section id="how-it-works" ref={howItWorksRef} className="relative py-10 px-10 md:py-20 px-4 min-h-screen overflow-hidden ">
+            <section id="how-it-works" ref={howItWorksRef} className="relative py-8 md:py-20 px-4 md:px-10 overflow-hidden">
                 {/* Large Blue Circular Background Element - Responsive */}
                 <div className="absolute top-0 mt-10 md:mt-20 right-0 w-[400px] h-[400px] md:w-[700px] md:h-[700px] bg-[#269DD4] rounded-full opacity-20 md:opacity-30 transform translate-x-1/4 -translate-y-1/4"></div>
 

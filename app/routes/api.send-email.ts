@@ -86,7 +86,7 @@ Submitted on: ${new Date().toLocaleString()}
         // Email options
         const mailOptions = {
             from: process.env.SMTP_USER,
-            to: 'gyankwadwomends2001@gmail.com',
+            to: 'dlservices@dennislawgh.com',
             replyTo: formData.email,
             subject: getServiceSubject(formData.serviceType),
             text: emailContent,

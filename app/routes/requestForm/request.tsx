@@ -120,7 +120,7 @@ const RequestForm = () => {
             // Convert files to base64 for sending to API
             const convertFilesToBase64 = async (files: File[]) => {
                 const filePromises = files.map(file => {
-                    return new Promise<{name: string, content: string, contentType: string}>((resolve, reject) => {
+                    return new Promise<{ name: string, content: string, contentType: string }>((resolve, reject) => {
                         const reader = new FileReader();
                         reader.onload = () => {
                             const base64String = reader.result as string;
@@ -163,7 +163,7 @@ const RequestForm = () => {
 
             if (result.success) {
                 setSubmitMessage(result.message);
-                
+
                 // Reset form
                 setFormData({
                     name: '',
@@ -193,15 +193,11 @@ const RequestForm = () => {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            {/* Navigation Header */}
-
-            {/* hero section */}
-            <div style={{ backgroundImage: `url(${heroImage})` }} className="container  bg-cover bg-center bg-no-repeat py-4 w-full h-[80vh] absolute top-0 left-0">
-
+            {/* Hero Background - Full Width */}
+            <div style={{ backgroundImage: `url(${heroImage})` }} className="bg-cover bg-center bg-no-repeat py-4 w-full h-[80vh] absolute top-0 left-0 right-0">
             </div>
 
-
-            <div className="flex flex-col lg:flex-row px-4 lg:px-60 relative z-10 mt-20 lg:mt-40">
+            <div className="flex flex-col lg:flex-row px-4 lg:px-60 relative z-10 mt-20 lg:mt-40 max-w-full overflow-hidden">
                 {/* Left Sidebar */}
                 <div className="w-full lg:w-1/3 bg-gradient-to-br rounded-t-2xl lg:rounded-tl-2xl lg:rounded-bl-2xl lg:rounded-tr-none from-blue-400 to-blue-600 flex items-center justify-center py-8 lg:py-0">
                     <div className="text-center text-white px-8">
@@ -221,7 +217,7 @@ const RequestForm = () => {
                 </div>
 
                 {/* Right Form Section */}
-                <div className="flex-1 flex items-center rounded-b-2xl lg:rounded-tr-2xl lg:rounded-br-2xl lg:rounded-bl-none bg-white justify-center p-4 lg:p-8">
+                <div className="flex-1 flex items-center rounded-b-2xl lg:rounded-tr-2xl lg:rounded-br-2xl lg:rounded-bl-none bg-white justify-center p-4 lg:p-8 min-w-0">
                     <div className="w-full max-w-2xl">
                         {/* Header */}
                         <div className="text-center mb-8">
@@ -407,10 +403,10 @@ const RequestForm = () => {
                                         <div className="space-y-2">
                                             {uploadedFiles.map((file, index) => (
                                                 <div key={index} className="flex items-center justify-between space-x-2 text-sm text-gray-600 bg-gray-50 p-2 rounded">
-                                                    <div className="flex items-center space-x-2">
+                                                    <div className="flex items-center space-x-2 min-w-0">
                                                         <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
                                                         <span className="truncate">{file.name}</span>
-                                                        <span className="text-xs text-gray-400">
+                                                        <span className="text-xs text-gray-400 flex-shrink-0">
                                                             ({(file.size / 1024 / 1024).toFixed(2)} MB)
                                                         </span>
                                                     </div>
@@ -460,26 +456,22 @@ const RequestForm = () => {
             </div>
 
             {/* Footer */}
-            <footer className="bg-gray-50 border-t">
-                <div className="container mx-auto px-4 py-6">
-                    <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                        <div className="text-gray-600 text-sm text-center md:text-left">
-                            © 2025 SVD Services. All Rights Reserved.
-                        </div>
-                        <div className="flex flex-wrap justify-center md:justify-end space-x-6 text-sm">
-                            <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors duration-300">
-                                Terms & Conditions
-                            </a>
-                            <span className="text-gray-400">•</span>
-                            <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors duration-300">
-                                Privacy Policy
-                            </a>
-                            <span className="text-gray-400">•</span>
-                            <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors duration-300">
-                                Sign Out
-                            </a>
-                        </div>
-                    </div>
+            <footer className="bg-gray-50 mt-10 flex flex-col gap-4 pb-10">
+                <div className="text-gray-600 justify-center text-center text-sm">
+                    <p className='text-center'>© 2025 SVD Services. All Rights Reserved.</p>
+                </div>
+                <div className="flex flex-wrap justify-center space-x-6 text-sm text-center">
+                    <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors duration-300">
+                        Terms & Conditions
+                    </a>
+                    <span className="text-gray-400">•</span>
+                    <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors duration-300">
+                        Privacy Policy
+                    </a>
+                    <span className="text-gray-400">•</span>
+                    <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors duration-300">
+                        Sign Out
+                    </a>
                 </div>
             </footer>
         </div>

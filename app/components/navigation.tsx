@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Users, Menu, X } from "lucide-react";
 
 const navigation = [
-    { name: "Home", to: "/landingPage/home", isExternal: true },
+    { name: "Home", to: "/landingPage/index ", isExternal: true },
     { name: "Our Services", to: "#services", isExternal: false },
     { name: "Pricing", to: "/pricing", isExternal: true },
     { name: "Request Form", to: "/requestForm/request", isExternal: true },

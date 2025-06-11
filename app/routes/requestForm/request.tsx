@@ -75,7 +75,39 @@ const RequestForm = () => {
     const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         const files = e.target.files;
         if (files) {
-            setUploadedFiles(prev => [...prev, ...Array.from(files)]);
+            const maxFileSize = 10 * 1024 * 1024; // 10MB limit
+            const allowedTypes = [
+                'application/pdf',
+                'application/msword',
+                'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                'image/jpeg',
+                'image/jpg',
+                'image/png',
+                'text/plain'
+            ];
+
+            const validFiles: File[] = [];
+            const errors: string[] = [];
+
+            Array.from(files).forEach(file => {
+                if (file.size > maxFileSize) {
+                    errors.push(`${file.name} is too large (max 10MB)`);
+                } else if (!allowedTypes.includes(file.type)) {
+                    errors.push(`${file.name} is not a supported file type`);
+                } else {
+                    validFiles.push(file);
+                }
+            });
+
+            if (errors.length > 0) {
+                setSubmitMessage('File upload errors:\n' + errors.join('\n'));
+            } else {
+                setSubmitMessage(''); // Clear any previous error messages
+            }
+
+            if (validFiles.length > 0) {
+                setUploadedFiles(prev => [...prev, ...validFiles]);
+            }
         }
     };
 
@@ -85,11 +117,37 @@ const RequestForm = () => {
         setSubmitMessage('');
 
         try {
+            // Convert files to base64 for sending to API
+            const convertFilesToBase64 = async (files: File[]) => {
+                const filePromises = files.map(file => {
+                    return new Promise<{name: string, content: string, contentType: string}>((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.onload = () => {
+                            const base64String = reader.result as string;
+                            // Remove the data:mime/type;base64, prefix
+                            const base64Content = base64String.split(',')[1];
+                            resolve({
+                                name: file.name,
+                                content: base64Content,
+                                contentType: file.type
+                            });
+                        };
+                        reader.onerror = reject;
+                        reader.readAsDataURL(file);
+                    });
+                });
+                return Promise.all(filePromises);
+            };
+
+            // Convert uploaded files to base64
+            const attachments = uploadedFiles.length > 0 ? await convertFilesToBase64(uploadedFiles) : [];
+
             // Prepare data for API
             const emailData = {
                 ...formData,
                 serviceType,
-                fileCount: uploadedFiles.length
+                fileCount: uploadedFiles.length,
+                attachments: attachments
             };
 
             // Call the SMTP API
@@ -127,6 +185,10 @@ const RequestForm = () => {
         } finally {
             setIsSubmitting(false);
         }
+    };
+
+    const removeFile = (index: number) => {
+        setUploadedFiles(prev => prev.filter((_, i) => i !== index));
     };
 
     return (
@@ -344,12 +406,27 @@ const RequestForm = () => {
                                         <h4 className="text-sm font-medium text-gray-700 mb-2">Uploaded Files:</h4>
                                         <div className="space-y-2">
                                             {uploadedFiles.map((file, index) => (
-                                                <div key={index} className="flex items-center space-x-2 text-sm text-gray-600">
-                                                    <Check className="w-4 h-4 text-green-500" />
-                                                    <span>{file.name}</span>
+                                                <div key={index} className="flex items-center justify-between space-x-2 text-sm text-gray-600 bg-gray-50 p-2 rounded">
+                                                    <div className="flex items-center space-x-2">
+                                                        <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                        <span className="truncate">{file.name}</span>
+                                                        <span className="text-xs text-gray-400">
+                                                            ({(file.size / 1024 / 1024).toFixed(2)} MB)
+                                                        </span>
+                                                    </div>
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => removeFile(index)}
+                                                        className="text-red-500 hover:text-red-700 text-xs ml-2 flex-shrink-0"
+                                                    >
+                                                        Remove
+                                                    </button>
                                                 </div>
                                             ))}
                                         </div>
+                                        <p className="text-xs text-gray-500 mt-2">
+                                            Supported formats: PDF, DOC, DOCX, JPG, PNG, TXT (Max 10MB each)
+                                        </p>
                                     </div>
                                 )}
                             </div>

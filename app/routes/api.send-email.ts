@@ -69,9 +69,19 @@ Instructions:
 ${formData.instructions || 'No additional instructions provided'}
 
 Uploaded Files: ${formData.fileCount || 0} file(s) attached
+${formData.attachments && formData.attachments.length > 0 ? 
+    '\nAttached Files:\n' + formData.attachments.map((file: any) => `- ${file.name}`).join('\n') : ''}
 
 Submitted on: ${new Date().toLocaleString()}
         `;
+
+        // Prepare attachments for nodemailer
+        const emailAttachments = formData.attachments ? formData.attachments.map((file: any) => ({
+            filename: file.name,
+            content: file.content,
+            encoding: 'base64',
+            contentType: file.contentType
+        })) : [];
 
         // Email options
         const mailOptions = {
@@ -80,6 +90,7 @@ Submitted on: ${new Date().toLocaleString()}
             replyTo: formData.email,
             subject: getServiceSubject(formData.serviceType),
             text: emailContent,
+            attachments: emailAttachments,
             html: `
                 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
                     <h2 style="color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 10px;">
@@ -119,6 +130,14 @@ Submitted on: ${new Date().toLocaleString()}
 
                     <div style="margin: 20px 0; padding: 15px; background-color: #ecfdf5; border-radius: 8px;">
                         <p style="margin: 0;"><strong>Uploaded Files:</strong> ${formData.fileCount || 0} file(s) attached</p>
+                        ${formData.attachments && formData.attachments.length > 0 ? `
+                        <div style="margin-top: 10px;">
+                            <strong>Attached Files:</strong>
+                            <ul style="margin: 5px 0; padding-left: 20px;">
+                                ${formData.attachments.map((file: any) => `<li style="margin: 3px 0;">${file.name}</li>`).join('')}
+                            </ul>
+                        </div>
+                        ` : ''}
                         <p style="margin: 5px 0 0 0; font-size: 14px; color: #6b7280;">Submitted on: ${new Date().toLocaleString()}</p>
                     </div>
                 </div>

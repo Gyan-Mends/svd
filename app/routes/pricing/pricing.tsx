@@ -3,64 +3,52 @@ import { Check, Star } from 'lucide-react';
 const PricingPage = () => {
     const pricingPlans = [
         {
-            name: "Startup Plan",
-            price: "$69",
-            period: "per month",
+            name: "Due Diligence Search",
+            subtitle: "Comprehensive court registry  searches across all levels",
+          
             features: [
-                "Billed annually",
-                "Fixed Pricing",
-                "50 agents",
-                "1000 tasks",
-                "Branded Agent App & Dashboard",
-                "Free Third party integration"
+               {
+                name: "High Court Per Registry =  ",
+                price: " 400 GHC"
+               },
+               {
+                name: "Court of Appeal = ",
+                price: " 450 GHC"
+               },
+               {    
+                name: "Supreme Court = ",
+                price: " 450 GHC"
+               }
             ],
             buttonText: "TRY FOR FREE",
             isRecommended: false,
             bgColor: "bg-white"
         },
+        
         {
-            name: "Pro Agent",
-            subtitle: "Usage Based",
-            price: "$10",
-            period: "per agent",
+            name: "Document Verification",
+            subtitle: "Professional verification of legal  documents and certificates",
+            price: "450 GHC",
+            period: "per document verification",
             features: [
-                "Billed monthly",
-                "Usage based",
-                "Unlimited agents",
-                "Pay for every task created"
-            ],
-            buttonText: "TRY FOR FREE",
-            isRecommended: false,
-            bgColor: "bg-white"
-        },
-        {
-            name: "Pro Task",
-            subtitle: "Usage Based",
-            price: "$0.1",
-            period: "per task",
-            features: [
-                "Billed monthly",
-                "Usage based",
-                "Unlimited Tasks",
-                "Pay for every agent added"
+                "Authenticity verification",
+                "Legal compliance check",
+                "Detail verification report",
             ],
             buttonText: "TRY FOR FREE",
             isRecommended: true,
             bgColor: "bg-white"
         },
         {
-            name: "Enterprise",
-            subtitle: "Custom Pricing",
-            price: "Custom",
-            period: "pricing",
+            name: "Document Request",
+            subtitle: "Custom document procurement and legal documents and certificates",
+            price: "Upon Request",
+            period: "Pricing varies by document type and complexity",
             features: [
-                "For more than 10k transactions",
-                "Go live priority",
-                "Territory-wise restricted forms",
-                "Self-hosted Installation",
-                "Broadcast Feature",
-                "Branded Agent app and dashboard",
-                "Custom 3rd party Integration"
+                "Custom \ qoute provided",
+                "Fast turnaround time",
+                "Professional handling",
+               
             ],
             buttonText: "CONTACT US",
             isRecommended: false,
@@ -71,10 +59,10 @@ const PricingPage = () => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 relative overflow-hidden">
             {/* Background decorative elements */}
-            <div className="absolute top-10 left-10 w-4 h-4 bg-white/20 rounded-full"></div>
-            <div className="absolute top-20 right-20 w-4 h-4 bg-white/20 rounded-full"></div>
-            <div className="absolute bottom-10 left-20 w-4 h-4 bg-white/20 rounded-full"></div>
-            <div className="absolute bottom-20 right-10 w-4 h-4 bg-white/20 rounded-full"></div>
+            <div className="absolute bg-gradient-to-br from-cyan-300/30 to-purple-400/30 top-10 left-10 w-20 shadow-2xl h-20 bg-white/20 rounded-full"></div>
+            <div className="absolute top-20 right-20 w-40 shadow-2xl h-40 bg-white/20 rounded-full"></div>
+            <div className="absolute bottom-10 left-20 w-20 shadow-2xl h-20 bg-white/20 rounded-full"></div>
+            <div className="absolute bottom-20 right-10 w-20 shadow-2xl h-20 bg-white/20 rounded-full"></div>
             
             {/* Navigation Header */}
            
@@ -84,15 +72,15 @@ const PricingPage = () => {
                 {/* Header Section */}
                 <div className="text-center mb-16">
                     <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                        Simple pricing that works at any scale
+                        SVD Services Pricing 
                     </h1>
                     <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-                        Simple, transparent pricing for everyone. Whether you're a local restaurant or a multinational logistics company
+                        Professional Legal Document Verification Services   
                     </p>
                 </div>
 
                 {/* Pricing Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 flex items-center justify-center w-full lg:ml-80 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
                     {pricingPlans.map((plan, index) => (
                         <div
                             key={index}
@@ -112,19 +100,19 @@ const PricingPage = () => {
 
                             {/* Plan Header */}
                             <div className="text-center mb-8">
-                                <h3 className={`text-xl font-bold mb-2 ${plan.name === 'Enterprise' ? 'text-white' : 'text-gray-800'}`}>
+                                <h3 className={`text-xl font-bold mb-2 ${plan.name === 'Document Request' ? 'text-white' : 'text-gray-800'}`}>
                                     {plan.name}
                                 </h3>
                                 {plan.subtitle && (
-                                    <p className={`text-sm ${plan.name === 'Enterprise' ? 'text-white/80' : 'text-gray-600'}`}>
+                                    <p className={`text-sm ${plan.name === 'Document Request' ? 'text-white/80' : 'text-gray-600'}`}>
                                         {plan.subtitle}
                                     </p>
                                 )}
                                 <div className="mt-4">
-                                    <span className={`text-4xl font-bold ${plan.name === 'Enterprise' ? 'text-white' : 'text-gray-900'}`}>
+                                    <span className={`text-sm ${plan.name === 'Document Request' ? 'text-white font-bold text-xl' : 'text-gray-900 font-bold text-xl'}`}>
                                         {plan.price}
-                                    </span>
-                                    <span className={`text-lg ml-2 ${plan.name === 'Enterprise' ? 'text-white/80' : 'text-gray-600'}`}>
+                                    </span><br/>
+                                    <span className={`text-lg ml-2 ${plan.name === 'Document Request' ? 'text-white/80' : 'text-gray-600'}`}>
                                         {plan.period}
                                     </span>
                                 </div>
@@ -135,12 +123,17 @@ const PricingPage = () => {
                                 {plan.features.map((feature, featureIndex) => (
                                     <div key={featureIndex} className="flex items-start space-x-3">
                                         <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${
-                                            plan.name === 'Enterprise' ? 'text-white' : 'text-green-500'
+                                            plan.name === 'Document Request' ? 'text-white' : 'text-green-500'
                                         }`} />
                                         <span className={`text-sm ${
-                                            plan.name === 'Enterprise' ? 'text-white/90' : 'text-gray-600'
+                                            plan.name === 'Document Request' ? 'text-white/90' : 'text-gray-600'
                                         }`}>
-                                            {feature}
+                                            {typeof feature === 'object' ? feature.name : feature}
+                                            <span className={`text-sm ${
+                                                plan.name === 'Document Request' ? 'text-white/90 font-bold' : 'text-gray-600 font-bold text-md'
+                                            }`}>
+                                                {typeof feature === 'object' ? feature.price : ''}
+                                            </span>
                                         </span>
                                     </div>
                                 ))}

@@ -4,7 +4,7 @@ import { Link } from "react-router";
 
 const navigation = [
     { name: "Home", to: "/", isExternal: true },
-    { name: "Our Services", to: "/#services", isExternal: false },
+    { name: "Our Services", to: "#services", isExternal: false },
     { name: "Pricing", to: "/pricing", isExternal: true },
     { name: "Request Form", to: "/requestForm/request", isExternal: true },
 ];

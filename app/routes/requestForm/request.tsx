@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Upload, FileText, Check } from 'lucide-react';
-import heroImage from '~/components/images/image1.avif'
+import heroImage from '~/components/images/image1.avif';
 
 const RequestForm = () => {
     const [formData, setFormData] = useState({
@@ -16,6 +16,8 @@ const RequestForm = () => {
 
     const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
     const [serviceType, setServiceType] = useState('court-search'); // Default service type
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitMessage, setSubmitMessage] = useState('');
 
     // Get service type from URL parameters
     useEffect(() => {
@@ -77,10 +79,54 @@ const RequestForm = () => {
         }
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('Form submitted:', formData);
-        console.log('Uploaded files:', uploadedFiles);
+        setIsSubmitting(true);
+        setSubmitMessage('');
+
+        try {
+            // Prepare data for API
+            const emailData = {
+                ...formData,
+                serviceType,
+                fileCount: uploadedFiles.length
+            };
+
+            // Call the SMTP API
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(emailData)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                setSubmitMessage(result.message);
+                
+                // Reset form
+                setFormData({
+                    name: '',
+                    country: '',
+                    email: '',
+                    phoneNumber: '',
+                    reasonForRequest: '',
+                    verificationDocuments: false,
+                    requestedDocument: '',
+                    instructions: ''
+                });
+                setUploadedFiles([]);
+            } else {
+                setSubmitMessage(result.message || 'There was an error submitting your request. Please try again.');
+            }
+        } catch (error) {
+            console.error('Submission failed:', error);
+            setSubmitMessage('There was an error submitting your request. Please try again or contact us directly at gyankwadwomends2001@gmail.com');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -121,8 +167,18 @@ const RequestForm = () => {
                             <p className="text-gray-600">{serviceContent.description}</p>
                         </div>
 
+                        {/* Success/Error Message */}
+                        {submitMessage && (
+                            <div className={`mb-6 p-4 rounded-lg ${submitMessage.includes('successfully') ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                                {submitMessage}
+                            </div>
+                        )}
+
                         {/* Form */}
                         <form onSubmit={handleSubmit} className="bg-white p-4 lg:p-8 space-y-6">
+                            {/* Hidden input for service type */}
+                            <input type="hidden" name="serviceType" value={serviceType} />
+
                             {/* Personal Information Section */}
                             <div>
                                 <h3 className="text-lg font-semibold text-blue-600 mb-4">Your Personal Information</h3>
@@ -302,9 +358,10 @@ const RequestForm = () => {
                             <div className="flex flex-col sm:flex-row gap-4 pt-6">
                                 <button
                                     type="submit"
-                                    className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-300 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                                    disabled={isSubmitting}
+                                    className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-300 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
-                                    Submit Request
+                                    {isSubmitting ? 'Submitting...' : 'Submit Request'}
                                 </button>
                                 <button
                                     type="button"

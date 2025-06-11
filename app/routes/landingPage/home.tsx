@@ -280,7 +280,7 @@ const Home = () => {
                     <div className="container mx-auto px-4 py-16">
                         <div className="max-w-4xl">
                             {/* Main Heading with Enhanced Animation */}
-                            <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight hero-text-shadow transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-10 opacity-0 scale-95'
+                            <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-white mb-6 leading-tight hero-text-shadow transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-10 opacity-0 scale-95'
                                 }`}>
                                 <span className={`inline-block transition-all duration-1000 delay-100 transform ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
                                     Your Trusted Partner
@@ -347,7 +347,7 @@ const Home = () => {
                     {/* Services Title with Scroll Animation */}
                     <h1
                         ref={servicesTitleRef}
-                        className={`text-3xl md:text-5xl customed-text-color font-bold text-center transition-all duration-1000 transform ${isElementVisible('services-title')
+                        className={`text-3xl md:text-5xl customed-text-color font-bold font-heading text-center transition-all duration-1000 transform ${isElementVisible('services-title')
                             ? 'translate-y-0 opacity-100 scale-100'
                             : 'translate-y-20 opacity-0 scale-95'
                             }`}
@@ -414,7 +414,7 @@ const Home = () => {
                 {/* Why Choose Us Title with Scroll Animation */}
                 <h1
                     ref={whyChooseUsTitleRef}
-                    className={`text-3xl md:text-5xl font-bold customed-text-color text-center transition-all duration-1000 transform ${isElementVisible('why-choose-us-title')
+                    className={`text-3xl md:text-5xl font-bold font-heading customed-text-color text-center transition-all duration-1000 transform ${isElementVisible('why-choose-us-title')
                         ? 'translate-y-0 opacity-100 scale-100'
                         : 'translate-y-20 opacity-0 scale-95'
                         }`}
@@ -466,7 +466,7 @@ const Home = () => {
                     {/* How It Works Title with Scroll Animation - Responsive */}
                     <h1
                         ref={howItWorksTitleRef}
-                        className={`text-3xl md:text-5xl font-bold customed-text-color mb-8 md:mb-16 text-center md:text-left transition-all duration-1000 transform ${isElementVisible('how-it-works-title')
+                        className={`text-3xl md:text-5xl font-bold font-heading customed-text-color mb-8 md:mb-16 text-center md:text-left transition-all duration-1000 transform ${isElementVisible('how-it-works-title')
                             ? 'translate-y-0 opacity-100 scale-100'
                             : 'translate-y-20 opacity-0 scale-95'
                             }`}
@@ -730,10 +730,10 @@ const Home = () => {
                         <div className='flex flex-col gap-4 text-center lg:text-left'>
                             <h1
                                 ref={whoBenefitTitleRef}
-                                className={`text-3xl md:text-5xl font-bold customed-text-color transition-all duration-1000 transform ${isElementVisible('who-benefit-title')
-                                    ? 'translate-y-0 opacity-100 scale-100'
-                                    : 'translate-y-20 opacity-0 scale-95'
-                                    }`}
+                                                    className={`text-3xl md:text-5xl font-bold font-heading customed-text-color transition-all duration-1000 transform ${isElementVisible('who-benefit-title')
+                        ? 'translate-y-0 opacity-100 scale-100'
+                        : 'translate-y-20 opacity-0 scale-95'
+                        }`}
                             >
                                 Who can Benefit?
                             </h1>
@@ -800,7 +800,7 @@ const Home = () => {
                     {/* Our Commitment Title with Scroll Animation */}
                     <h1 
                         ref={commitmentTitleRef}
-                        className={`text-3xl md:text-5xl font-bold mb-8 md:mb-20 customed-text-color text-center transition-all duration-1000 transform ${isElementVisible('commitment-title')
+                        className={`text-3xl md:text-5xl font-bold font-heading mb-8 md:mb-20 customed-text-color text-center transition-all duration-1000 transform ${isElementVisible('commitment-title')
                             ? 'translate-y-0 opacity-100 scale-100' 
                             : 'translate-y-20 opacity-0 scale-95'
                         }`}

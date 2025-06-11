@@ -71,7 +71,7 @@ const PricingPage = () => {
             <div className="container mx-auto px-4 py-16 relative z-10">
                 {/* Header Section */}
                 <div className="text-center mb-16">
-                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                    <h1 className="text-4xl md:text-5xl font-bold font-heading text-white mb-6">
                         SVD Services Pricing 
                     </h1>
                     <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">

@@ -206,10 +206,10 @@ const RequestForm = () => {
                                 <FileText className="w-10 h-10 text-white" />
                             </div>
                         </div>
-                        <h1 className="text-2xl lg:text-3xl font-bold mb-4">
-                            Welcome to<br />
-                            <span className="text-3xl lg:text-4xl">SVD Services</span>
-                        </h1>
+                                                    <h1 className="text-2xl lg:text-3xl font-bold font-heading mb-4">
+                                Welcome to<br />
+                                <span className="text-3xl lg:text-4xl">SVD Services</span>
+                            </h1>
                         <p className="text-blue-100 text-base lg:text-lg leading-relaxed">
                             Your trusted partner for comprehensive court search, document verification, and legal data access services.
                         </p>
@@ -221,7 +221,7 @@ const RequestForm = () => {
                     <div className="w-full max-w-2xl">
                         {/* Header */}
                         <div className="text-center mb-8">
-                            <h2 className="text-3xl font-bold text-gray-800 mb-2">{serviceContent.title}</h2>
+                            <h2 className="text-3xl font-bold font-heading text-gray-800 mb-2">{serviceContent.title}</h2>
                             <p className="text-gray-600">{serviceContent.description}</p>
                         </div>
 
@@ -239,7 +239,7 @@ const RequestForm = () => {
 
                             {/* Personal Information Section */}
                             <div>
-                                <h3 className="text-lg font-semibold text-blue-600 mb-4">Your Personal Information</h3>
+                                <h3 className="text-lg font-semibold font-heading text-blue-600 mb-4">Your Personal Information</h3>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                                     <div>

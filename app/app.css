@@ -12,6 +12,8 @@
 @theme {
   --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-heading: "Montserrat", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 /* Smooth scrolling for the entire page */
@@ -314,6 +316,11 @@ html {
 
 .floating-element {
   animation: float 6s ease-in-out infinite;
+}
+
+/* Utility class for Montserrat headings */
+.font-heading {
+  font-family: var(--font-heading);
 }
 
 

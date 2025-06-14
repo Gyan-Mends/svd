@@ -3,7 +3,7 @@ import Navigation from '../../components/navigation';
 import image from '~/components/images/image1.avif';
 import image2 from '~/components/images/image2.avif';
 import image3 from '~/components/images/image3.avif';
-import { ArrowRight, Settings, Target, FileCheck, HandHeart, Shield, Clock, MessageCircle, Phone, Mail, Smartphone } from 'lucide-react';
+import { ArrowRight, Settings, Target, FileCheck, HandHeart, Shield, Clock, MessageCircle, Phone, Mail, Smartphone, Facebook, Twitch, LinkedinIcon, Instagram, X } from 'lucide-react';
 import type { MetaFunction } from 'react-router';
 
 // meta for the page
@@ -249,7 +249,7 @@ const Home = () => {
     return (
         <div className="flex flex-col ">
             {/* Hero Section */}
-            <div className="min-h-screen bg-gradient-to-r from-[#840243] to-[#D9D9D9] relative overflow-hidden">
+            <div className="min-h-screen bg-gradient-to-r from-black to-black relative overflow-hidden">
                 {/* Background Image Slideshow */}
                 <div className="absolute inset-0">
                     {backgroundImages.map((bg, index) => (
@@ -270,7 +270,7 @@ const Home = () => {
                 </div>
 
                 {/* Animated Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#840243]/70 to-[#D9D9D9]/30 animate-pulse-slow"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 animate-pulse-slow"></div>
 
                 {/* Floating Elements for Added Animation */}
 
@@ -364,11 +364,13 @@ const Home = () => {
                             }`}
                     >
                         <p className="text-md md:text-md text-gray-600 ">
-                            We offer a Subscription-Based and On-Demand Search, Document, and Verification (SVD) service
+                        We offer a Subscription-Based and On-Demand Due Diligence Search at the Ghanaian
                         </p>
                         <p className="text-md md:text-md text-gray-600">
-                            to help businesses and individuals access, verify, and request court-related documents efficiently.
+                        courts, Document Verification, and Document Request services to enable corporations 
                         </p>
+                        <p className="text-md md:text-md text-gray-600">
+                        and individuals access, verify, and request for documents and cases efficiently in Ghana.                        </p>
                     </div>
 
                     {/* Service Cards with Staggered Scroll Animation */}
@@ -938,17 +940,17 @@ const Home = () => {
                                 Your trusted partner for comprehensive court search, document verification, and legal data access services across Ghana.
                             </p>
                             <div className="flex space-x-4">
-                                <a href="#" className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors duration-300">
-                                    <span className="text-sm font-bold text-white">f</span>
+                                <a href='https://web.facebook.com/dennislawnews' className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors duration-300">
+                                    <span className="text-sm font-bold text-white"><Facebook /></span>
                                 </a>
-                                <a href="#" className="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors duration-300">
-                                    <span className="text-sm font-bold text-white">t</span>
+                                <a href="https://x.com/dennislawnews" className="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors duration-300">
+                                    <span className="text-sm font-bold text-white"><X /></span>
                                 </a>
-                                <a href="#" className="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors duration-300">
-                                    <span className="text-sm font-bold text-white">in</span>
+                                <a href="https://www.linkedin.com/company/dennis-law-ghana" className="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors duration-300">
+                                    <span className="text-sm font-bold text-white"><LinkedinIcon /></span>
                                 </a>
-                                <a href="#" className="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors duration-300">
-                                    <span className="text-sm font-bold text-white">ig</span>
+                                <a href='https://www.instagram.com/dennislawnews/' className="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors duration-300">
+                                    <span className="text-sm font-bold text-white"><Instagram /></span>
                                 </a>
                             </div>
                         </div>
@@ -1000,7 +1002,7 @@ const Home = () => {
                                             <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                                         </svg>
                                     </div>
-                                    <p className="">+233 XX XXX XXXX</p>
+                                    <p className="">+233 596 252 127</p>
                                 </div>
                                 <div className="flex items-center space-x-3">
                                     <div className="w-5 h-5 text-blue-400">
@@ -1009,7 +1011,8 @@ const Home = () => {
                                             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                                         </svg>
                                     </div>
-                                    <p className="">info@dlsvd.com</p>
+                                    <p className="">dlservices@dennislawgh.com
+                                    </p>
                                 </div>
                                 <div className="flex items-center space-x-3">
                                     <div className="w-5 h-5 text-blue-400">
@@ -1018,8 +1021,8 @@ const Home = () => {
                                         </svg>
                                     </div>
                                     <div>
-                                        <p className="">Mon - Fri: 8:00 AM - 6:00 PM</p>
-                                        <p className="">Sat: 9:00 AM - 2:00 PM</p>
+                                        <p className="">Mon - Fri: 9:00 AM - 5:00 PM</p>
+                                      
                                     </div>
                                 </div>
                             </div>

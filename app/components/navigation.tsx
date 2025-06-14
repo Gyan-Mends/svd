@@ -39,8 +39,12 @@ export default function Navigation() {
                         to="/" 
                         className="flex items-center space-x-2 transform hover:scale-105 transition-transform duration-200"
                     >
-                        <Users className="w-8 h-8 text-blue-600" />
-                        <span className="text-xl font-bold text-gray-900">SVD</span>
+                       <div className="flex items-center space-x-2 mb-6">
+                                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                                    <span className=" font-bold text-xl">DL</span>
+                                </div>
+                                <span className="text-2xl font-bold">SVD</span>
+                            </div>
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -71,9 +75,7 @@ export default function Navigation() {
                             <a href="#contact" onClick={(e) => handleSmoothScroll(e, '#contact', false)}>Contact Us</a>
                         </button>
 
-                        <button className="customed-button">
-                            <a href="#contact" onClick={(e) => handleSmoothScroll(e, '#contact', false)}>Login</a>
-                        </button>
+                       
                     </nav>
 
                     {/* Mobile Menu Button */}
@@ -121,9 +123,7 @@ export default function Navigation() {
                                 <button className="customed-bordered-button text-center">
                                     <a href="#contact" onClick={(e) => handleSmoothScroll(e, '#contact', false)}>Contact Us</a>
                                 </button>
-                                <button className="customed-button text-center">
-                                    <a href="#contact" onClick={(e) => handleSmoothScroll(e, '#contact', false)}>Login</a>
-                                </button>
+                               
                             </div>
                         </div>
                     </nav>

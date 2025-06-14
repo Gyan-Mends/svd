@@ -59,10 +59,10 @@ const PricingPage = () => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 relative overflow-hidden">
             {/* Background decorative elements */}
-            <div className="absolute bg-gradient-to-br from-cyan-300/30 to-purple-400/30 top-10 left-10 w-20 shadow-2xl h-20 bg-white/20 rounded-full"></div>
-            <div className="absolute top-20 right-20 w-40 shadow-2xl h-40 bg-white/20 rounded-full"></div>
-            <div className="absolute bottom-10 left-20 w-20 shadow-2xl h-20 bg-white/20 rounded-full"></div>
-            <div className="absolute bottom-20 right-10 w-20 shadow-2xl h-20 bg-white/20 rounded-full"></div>
+            <div className="absolute bg-gradient-to-br from-cyan-300/30 to-purple-400/30 top-10 left-10 w-20 shadow-sm h-20 bg-white/20 rounded-full"></div>
+            <div className="absolute top-20 right-20 w-40 shadow-sm h-40 bg-white/20 rounded-full"></div>
+            <div className="absolute bottom-10 left-20 w-20 shadow-sm h-20 bg-white/20 rounded-full"></div>
+            <div className="absolute bottom-20 right-10 w-20 shadow-sm h-20 bg-white/20 rounded-full"></div>
             
             {/* Navigation Header */}
            

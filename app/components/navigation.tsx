@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Users, Menu, X } from "lucide-react";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 
 const navigation = [
     { name: "Home", to: "/", isExternal: true },
@@ -8,7 +8,6 @@ const navigation = [
     { name: "Pricing", to: "/pricing", isExternal: true },
     { name: "Request Form", to: "/requestForm/request", isExternal: true },
 ];
-
 export default function Navigation() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -72,7 +71,7 @@ export default function Navigation() {
                             )
                         ))}
                         <button className="customed-bordered-button">
-                            <a href="#contact" onClick={(e) => handleSmoothScroll(e, '#contact', false)}>Contact Us</a>
+                            <NavLink to="/contact">Contact Us</NavLink>
                         </button>
 
                        
@@ -121,7 +120,7 @@ export default function Navigation() {
                             {/* Mobile Action Buttons */}
                             <div className="flex flex-col space-y-3 pt-4 border-t">
                                 <button className="customed-bordered-button text-center">
-                                    <a href="#contact" onClick={(e) => handleSmoothScroll(e, '#contact', false)}>Contact Us</a>
+                                    <NavLink to="/contact">Contact Us</NavLink>
                                 </button>
                                
                             </div>

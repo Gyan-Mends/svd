@@ -1,5 +1,6 @@
 import { Outlet } from "react-router";
 import Navigation from "~/components/navigation";
+import Footer from "~/components/footer";
 
 export default function AppLayout() {
     return (
@@ -7,6 +8,7 @@ export default function AppLayout() {
              {/* Navigation */}
              <Navigation />
             <Outlet />
+            <Footer />
         </div>
     )
 }

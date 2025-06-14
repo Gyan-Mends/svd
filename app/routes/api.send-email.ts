@@ -42,13 +42,30 @@ export async function action({ request }: ActionFunctionArgs) {
                     return 'New Court Document Request';
                 case 'document-verification':
                     return 'New Document Verification Request';
+                case 'contact':
+                    return 'New Contact Form Inquiry - DL SVD';
                 default:
                     return 'New Court Service Request';
             }
         };
 
         // Create email content
-        const emailContent = `
+        const isContactForm = formData.serviceType === 'contact';
+        
+        const emailContent = isContactForm ? `
+New Contact Form Submission
+==========================
+
+Personal Information:
+- Name: ${formData.name}
+- Email: ${formData.email}
+- Phone: ${formData.phoneNumber}
+
+Inquiry Details:
+${formData.instructions}
+
+Submitted on: ${new Date().toLocaleString()}
+        ` : `
 New Request Submission
 =====================
 
@@ -93,10 +110,34 @@ Submitted on: ${new Date().toLocaleString()}
             attachments: emailAttachments,
             html: `
                 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-                    <h2 style="color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 10px;">
-                        New Request Submission
+                    <h2 style="color: #32ADE6; border-bottom: 2px solid #32ADE6; padding-bottom: 10px;">
+                        ${isContactForm ? 'New Contact Form Submission' : 'New Request Submission'}
                     </h2>
                     
+                    ${isContactForm ? `
+                    <div style="background-color: #f0f9ff; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                        <h3 style="color: #1B7DAB; margin-top: 0;">Contact Inquiry</h3>
+                        <p style="margin: 5px 0; font-weight: bold;">DL SVD Contact Form</p>
+                    </div>
+
+                    <div style="margin: 20px 0;">
+                        <h3 style="color: #1B7DAB;">Contact Information</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin: 8px 0;"><strong>Name:</strong> ${formData.name}</li>
+                            <li style="margin: 8px 0;"><strong>Email:</strong> ${formData.email}</li>
+                            <li style="margin: 8px 0;"><strong>Phone:</strong> ${formData.phoneNumber}</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin: 20px 0;">
+                        <h3 style="color: #1B7DAB;">Message</h3>
+                        <div style="background-color: #f1f5f9; padding: 15px; border-radius: 8px; white-space: pre-wrap;">${formData.instructions}</div>
+                    </div>
+
+                    <div style="margin: 20px 0; padding: 15px; background-color: #ecfdf5; border-radius: 8px;">
+                        <p style="margin: 0; font-size: 14px; color: #6b7280;">Submitted on: ${new Date().toLocaleString()}</p>
+                    </div>
+                    ` : `
                     <div style="background-color: #f8fafc; padding: 15px; border-radius: 8px; margin: 20px 0;">
                         <h3 style="color: #1e40af; margin-top: 0;">Service Type</h3>
                         <p style="margin: 5px 0; font-weight: bold;">${getServiceSubject(formData.serviceType)}</p>
@@ -140,6 +181,7 @@ Submitted on: ${new Date().toLocaleString()}
                         ` : ''}
                         <p style="margin: 5px 0 0 0; font-size: 14px; color: #6b7280;">Submitted on: ${new Date().toLocaleString()}</p>
                     </div>
+                    `}
                 </div>
             `
         };

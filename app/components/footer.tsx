@@ -70,8 +70,8 @@ const Footer = () => {
                                 </svg>
                             </div>
                             <div>
-                                <p className="">123 Legal District</p>
-                                <p className="">Accra, Ghana</p>
+                                <p className="">No. 15 Netflix Street,</p>
+                                <p className=""> Madina Estate, Off-Upsa Road</p>
                             </div>
                         </div>
                         <div className="flex items-center space-x-3">

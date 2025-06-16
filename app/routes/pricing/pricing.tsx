@@ -18,6 +18,10 @@ const PricingPage = () => {
                {    
                 name: "Supreme Court = ",
                 price: " 450 GHC"
+               },
+               {    
+                name: "Others = ",
+                price: "Available upon request"
                }
             ],
             buttonText: "TRY FOR FREE",
@@ -130,7 +134,7 @@ const PricingPage = () => {
                                         }`}>
                                             {typeof feature === 'object' ? feature.name : feature}
                                             <span className={`text-sm ${
-                                                plan.name === 'Document Request' ? 'text-white/90 font-bold' : 'text-gray-600 font-bold text-md'
+                                                plan.name === 'Document Request' ? 'text-white/90 font-bold' : 'text-gray-600 font-bold text-sm'
                                             }`}>
                                                 {typeof feature === 'object' ? feature.price : ''}
                                             </span>

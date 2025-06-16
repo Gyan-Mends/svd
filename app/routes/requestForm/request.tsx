@@ -197,7 +197,7 @@ const RequestForm = () => {
             <div style={{ backgroundImage: `url(${heroImage})` }} className="bg-cover bg-center bg-no-repeat py-4 w-full h-[80vh] absolute top-0 left-0 right-0">
             </div>
 
-            <div className="flex flex-col lg:flex-row px-4 lg:px-60 relative z-10 mt-20 lg:mt-40 max-w-full overflow-hidden">
+            <div className="flex flex-col lg:flex-row px-4 pb-20 lg:px-60 relative z-10 mt-20 lg:mt-40 max-w-full overflow-hidden">
                 {/* Left Sidebar */}
                 <div className="w-full lg:w-1/3 bg-gradient-to-br rounded-t-2xl lg:rounded-tl-2xl lg:rounded-bl-2xl lg:rounded-tr-none from-blue-400 to-blue-600 flex items-center justify-center py-8 lg:py-0">
                     <div className="text-center text-white px-8">
@@ -455,25 +455,7 @@ const RequestForm = () => {
                 </div>
             </div>
 
-            {/* Footer */}
-            <footer className="bg-gray-50 mt-10 flex flex-col gap-4 pb-10">
-                <div className="text-gray-600 justify-center text-center text-sm">
-                    <p className='text-center'>© 2025 SVD Services. All Rights Reserved.</p>
-                </div>
-                <div className="flex flex-wrap justify-center space-x-6 text-sm text-center">
-                    <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors duration-300">
-                        Terms & Conditions
-                    </a>
-                    <span className="text-gray-400">•</span>
-                    <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors duration-300">
-                        Privacy Policy
-                    </a>
-                    <span className="text-gray-400">•</span>
-                    <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors duration-300">
-                        Sign Out
-                    </a>
-                </div>
-            </footer>
+            
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import { Check, Star } from 'lucide-react';
+import { NavLink } from 'react-router';
 
 const PricingPage = () => {
     const pricingPlans = [
@@ -24,7 +25,7 @@ const PricingPage = () => {
                 price: "Available upon request"
                }
             ],
-            buttonText: "TRY FOR FREE",
+            buttonText: "Contact Us",
             isRecommended: false,
             bgColor: "bg-white"
         },
@@ -39,7 +40,7 @@ const PricingPage = () => {
                 "Legal compliance check",
                 "Detail verification report",
             ],
-            buttonText: "TRY FOR FREE",
+            buttonText: "Contact Us",
             isRecommended: true,
             bgColor: "bg-white"
         },
@@ -54,7 +55,7 @@ const PricingPage = () => {
                 "Professional handling",
                
             ],
-            buttonText: "CONTACT US",
+            buttonText: "Contact Us",
             isRecommended: false,
             bgColor: "bg-gradient-to-br from-blue-400 to-blue-600 text-white"
         }
@@ -144,6 +145,7 @@ const PricingPage = () => {
                             </div>
 
                             {/* CTA Button */}
+                            <NavLink     to="/contact">
                             <button className={`w-full py-3 px-6 rounded-lg font-medium transition-all duration-300 ${
                                 plan.name === 'Enterprise'
                                     ? 'bg-white text-blue-600 hover:bg-gray-100'
@@ -152,7 +154,7 @@ const PricingPage = () => {
                                     : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
                             }`}>
                                 {plan.buttonText}
-                            </button>
+                            </button></NavLink>
                         </div>
                     ))}
                 </div>

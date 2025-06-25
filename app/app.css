@@ -157,6 +157,10 @@ html {
   opacity: 0;
 }
 
+.text-color-blue{
+  color: #2AB6F7;
+}
+
 .animate-fade-in {
   animation: fadeIn 0.6s ease-out forwards;
   opacity: 0;
@@ -278,7 +282,7 @@ html {
   @apply py-2 px-6 rounded-lg shadow-sm border border-[#32ADE6] hover:shadow-lg transition-all duration-300 font-medium text-[#32ADE6] hover:bg-[#32ADE6] hover:text-white
 }
 .customed-text-color{
-  @apply text-[#1B7DAB]
+  @apply text-[#1B7DAB] 
 }
 
 

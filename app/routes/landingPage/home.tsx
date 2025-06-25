@@ -468,7 +468,7 @@ const Home = () => {
             {/* How It Works Section with Scroll Animations */}
             <section id="how-it-works" ref={howItWorksRef} className="relative py-8 md:py-20 px-4 md:px-10 overflow-hidden">
                 {/* Large Blue Circular Background Element - Responsive */}
-                <div className="absolute top-0 mt-10 md:mt-20 right-0 w-[400px] h-[400px] md:w-[700px] md:h-[700px] bg-[#269DD4] rounded-full opacity-20 md:opacity-30 transform translate-x-1/4 -translate-y-1/4"></div>
+                <div className="absolute top-0 mt-10 md:mt-20 right-0 w-[400px] h-[400px] md:w-[700px] md:h-[700px] bg-[#54C4F8] rounded-full transform translate-x-1/4 -translate-y-1/4"></div>
 
                 <div className="container mx-auto relative z-10">
                     {/* How It Works Title with Scroll Animation - Responsive */}

@@ -6,6 +6,7 @@ import image3 from '~/components/images/image3.avif';
 import image4 from '~/components/images/img1.jpg';
 import image5 from '~/components/images/img2.jpg';
 import image6 from '~/components/images/img3.jpg';
+import logo1 from '~/components/images/logo1.jpg';
 import logo2 from '~/components/images/logo2.jpg';
 import logo3 from '~/components/images/logo3.jpg';
 import logo4 from '~/components/images/logo4.jpg';
@@ -67,23 +68,23 @@ const Home = () => {
             description: 'We simplify the process of searching, verifying, and retrieving court documents, saving you time.',
         },
         {
-            image: logo3,
+            image: logo6,
             title: 'Accuracy',
             description: 'Our direct access to court records ensures reliable and verified information.',
         },
        
         {
-            image: logo4,
+            image: logo1,
             title: 'Convenience',
             description: 'We simplify the process of searching, verifying, and retrieving court documents.',
         },
         {
-            image: logo5,
+            image: logo4,
             title: 'Secure Digital Access',
             description: 'We simplify the process of searching, verifying, and retrieving court documents.',
         },
         {
-            image: logo6,
+            image: logo3,
             title: 'Flexible Payment Options',
             description: 'We simplify the process of searching, verifying, and retrieving court documents.',
         }

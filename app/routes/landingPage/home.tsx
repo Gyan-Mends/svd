@@ -76,17 +76,17 @@ const Home = () => {
         {
             image: logo1,
             title: 'Convenience',
-            description: 'We simplify the process of searching, verifying, and retrieving court documents.',
+            description: 'Request services via WhatsApp, email, phone call, or SMS. ',
         },
         {
             image: logo4,
             title: 'Secure Digital Access',
-            description: 'We simplify the process of searching, verifying, and retrieving court documents.',
+            description: 'Easily track and receive documents via our secured online portal. ',
         },
         {
             image: logo3,
             title: 'Flexible Payment Options',
-            description: 'We simplify the process of searching, verifying, and retrieving court documents.',
+            description: ' Choose between subscription plans, pay-as-you-go, and expedited processing.',
         }
     ]
 
@@ -108,7 +108,7 @@ const Home = () => {
         {
             number: '3',
             title: 'Payment & Processing',
-            description: '• Our team will assess your request and provide an invoice for payment.',
+            description: '· Make payment via Mobile Money (MoMo), bank deposit, or online payment. Once confirmed, we begin processing your request.',
             icon: <Smartphone className="w-8 h-8 customed-text-color" />,
             position: 'bottom-center'
         },
@@ -469,7 +469,7 @@ const Home = () => {
             {/* How It Works Section with Scroll Animations */}
             <section id="how-it-works" ref={howItWorksRef} className="relative py-8 md:py-20 px-4 md:px-10 overflow-hidden">
                 {/* Large Blue Circular Background Element - Responsive */}
-                <div className="absolute top-0 mt-10 md:mt-20 right-0 w-[400px] h-[400px] md:w-[700px] md:h-[700px] bg-[#54C4F8] rounded-full transform translate-x-1/4 -translate-y-1/4"></div>
+                <div className="absolute top-0 mt-10 md:mt-20 !ml-40 right-0 w-[400px] h-[400px] md:w-[700px] md:h-[820px] bg-[#54C4F8] rounded-full transform translate-x-1/4 -translate-y-1/4"></div>
 
                 <div className="container mx-auto relative z-10">
                     {/* How It Works Title with Scroll Animation - Responsive */}

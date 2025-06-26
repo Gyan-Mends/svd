@@ -338,17 +338,7 @@ export default function Contact() {
           </div>
           
           <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.2398989401346!2d-0.2022!3d5.6037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzYnMTMuMyJOIDDCsDEyJzA3LjkiVw!5e0!3m2!1sen!2sgh!4v1647834710000!5m2!1sen!2sgh"
-              width="100%"
-              height="500"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="DL SVD Office Location"
-              className="w-full"
-            />
+          <iframe className='w-full ' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.3596342139604!2d-0.15926712501993817!3d5.661017432584766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf99845295c801%3A0x3e4129e30da397b5!2sDennislaw%20Ghana!5e0!3m2!1sen!2sgh!4v1750970539619!5m2!1sen!2sgh" width="600" height="450"  loading="lazy" ></iframe>
             
             {/* Office Marker */}
             <div className="absolute top-6 left-6 bg-[#32ADE6] text-white px-4 py-2 rounded-lg shadow-lg flex items-center space-x-2">

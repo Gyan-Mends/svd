@@ -76,12 +76,12 @@ const Home = () => {
         {
             image: logo1,
             title: 'Convenience',
-            description: 'Request services via WhatsApp, email, phone call, or SMS. ',
+            description: 'Request services via WhatsApp, email, phone call, or SMS.',
         },
         {
             image: logo4,
             title: 'Secure Digital Access',
-            description: 'Easily track and receive documents via our secured online portal. ',
+            description: 'Easily track and receive documents via our secured online portal.',
         },
         {
             image: logo3,
@@ -108,7 +108,7 @@ const Home = () => {
         {
             number: '3',
             title: 'Payment & Processing',
-            description: '· Make payment via Mobile Money (MoMo), bank deposit, or online payment. Once confirmed, we begin processing your request.',
+            description: '· Make payment via Mobile Money (MoMo), bank deposit, or online payment.Once confirmed, we begin processing your request.',
             icon: <Smartphone className="w-8 h-8 customed-text-color" />,
             position: 'bottom-center'
         },
@@ -309,11 +309,11 @@ const Home = () => {
                             {/* CTA Buttons with Staggered Animation */}
                             <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 delay-700 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                                 }`}>
-                                <a href="/requestForm/request" className={`customed-button text-md py-2 hover:bg-[#2a9bd4] hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-lg px-8 py-4 ${isVisible ? 'animate-bounce-in' : ''} text-center`}>
+                                <a href="/requestForm/request" className={`customed-button text-md py-2 hover:bg-[#2a9bd4] !rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-lg px-8 py-4 ${isVisible ? 'animate-bounce-in' : ''} text-center`}>
                                     Request Court Search
                                     {/* icon */}
                                 </a>
-                                <a href="/pricing" className={`customed-bordered-button !text-md py-2 border-white transform hover:scale-105 transition-all duration-300 !text-white px-8 py-4  delay-200 ${isVisible ? 'animate-slide-in-right' : ''} text-center`}>
+                                <a href="/pricing" className={`customed-bordered-button !text-md py-2 border-white transform !rounded-full hover:scale-105 transition-all duration-300 !text-white px-8 py-4  delay-200 ${isVisible ? 'animate-slide-in-right' : ''} text-center`}>
                                     View Pricing
                                 </a>
                             </div>

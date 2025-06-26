@@ -14,10 +14,10 @@ const PricingPage = () => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 relative overflow-hidden">
             {/* Background decorative elements */}
-            <div className="absolute top-10 left-10 w-32 h-32 bg-white/20 rounded-full blur-xl"></div>
-            <div className="absolute top-20 right-20 w-48 h-48 bg-white/20 rounded-full blur-xl"></div>
-            <div className="absolute bottom-10 left-20 w-24 h-24 bg-white/20 rounded-full blur-xl"></div>
-            <div className="absolute bottom-20 right-10 w-32 h-32 bg-white/20 rounded-full blur-xl"></div>
+            <div className="absolute top-10 left-10 w-32 h-32 bg-white/20 rounded-full "></div>
+            <div className="absolute top-20 right-20 w-48 h-48 bg-white/20 rounded-full "></div>
+            <div className="absolute bottom-10 left-20 w-24 h-24 bg-white/20 rounded-full "></div>
+            <div className="absolute bottom-20 right-10 w-32 h-32 bg-white/20 rounded-full "></div>
             
             {/* Main Content */}
             <div className="container mx-auto px-4 py-16 relative z-10">
@@ -35,7 +35,7 @@ const PricingPage = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     
                     {/* Due Diligence Search Card */}
-                    <div className="bg-white rounded-2xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300">
+                    <div className="bg-white rounded-2xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300" style={{ backgroundImage: 'url(/app/components/images/pricebg.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
                         <div className="mb-6">
                             <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                                 <FileSearch className="w-6 h-6 text-blue-600" />
@@ -59,6 +59,10 @@ const PricingPage = () => {
                                 <span className="text-gray-700">Supreme Court</span>
                                 <span className="text-2xl font-bold text-gray-900">450 GH₵</span>
                             </div>
+                            <div className="flex justify-between items-center">
+                                <span className="text-gray-700">Others</span>
+                                <span className="text-xl font-bold text-gray-900">Available Upon Request</span>
+                            </div>
                         </div>
 
                         <NavLink 
@@ -70,7 +74,7 @@ const PricingPage = () => {
                     </div>
 
                     {/* Document Verification Card */}
-                    <div className="bg-white rounded-2xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300">
+                    <div style={{ backgroundImage: 'url(/app/components/images/pricebg.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} className="bg-white rounded-2xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300">
                         <div className="mb-6">
                             <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                                 <FileCheck className="w-6 h-6 text-blue-600" />
@@ -110,7 +114,7 @@ const PricingPage = () => {
                     </div>
 
                     {/* Document Request Card */}
-                    <div className="bg-white rounded-2xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300">
+                    <div style={{ backgroundImage: 'url(/app/components/images/pricebg.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} className="bg-white rounded-2xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300">
                         <div className="mb-6">
                             <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                                 <FileText className="w-6 h-6 text-blue-600" />

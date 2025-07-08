@@ -211,7 +211,7 @@ const RequestForm = () => {
                                 <span className="text-3xl lg:text-4xl">SVD Services</span>
                             </h1>
                         <p className="text-blue-100 text-base lg:text-lg leading-relaxed">
-                            Your trusted partner for comprehensive court search, document verification, and legal data access services.
+                            Your trusted partner for comprehensive searches at all the courts across the country.
                         </p>
                     </div>
                 </div>

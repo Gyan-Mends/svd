@@ -35,21 +35,25 @@ const RequestForm = () => {
                 return {
                     title: 'Request Court Search',
                     description: 'Fill out the form below to request court searches',
+                    sidebarContent: 'Your trusted partner for comprehensive searches at all the courts across the country.'
                 };
             case 'document-request':
                 return {
                     title: 'Request for Court Documents',
                     description: 'Fill out the form below to request court documents',
+                    sidebarContent: 'Your trusted partner for reliable document retrieval across the country.'
                 };
             case 'document-verification':
                 return {
                     title: 'Verify Court Documents',
                     description: 'Fill out the form below to verify court documents',
+                    sidebarContent: 'Your trusted partner for extensive verification of  documents across the country.'
                 };
             default:
                 return {
                     title: 'Request Court Search',
                     description: 'Fill out the form below to request court searches',
+                    sidebarContent: 'Your trusted partner for comprehensive searches at all the courts across the country.'
                 };
         }
     };
@@ -211,7 +215,7 @@ const RequestForm = () => {
                                 <span className="text-3xl lg:text-4xl">SVD Services</span>
                             </h1>
                         <p className="text-blue-100 text-base lg:text-lg leading-relaxed">
-                            Your trusted partner for comprehensive searches at all the courts across the country.
+                            {serviceContent.sidebarContent}
                         </p>
                     </div>
                 </div>

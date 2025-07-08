@@ -12,6 +12,10 @@ import logo3 from '~/components/images/logo3.jpg';
 import logo4 from '~/components/images/logo4.jpg';
 import logo5 from '~/components/images/logo5.jpg';
 import logo6 from '~/components/images/logo6.jpg';
+import bank from '~/components/images/Banks.jpg';
+import insurance from '~/components/images/insurance.jpg';
+import legal from '~/components/images/legal division.jpg';
+import other from '~/components/images/OTHER.jpg';
 
 import { ArrowRight, Settings, Target, FileCheck, HandHeart, Shield, Clock, MessageCircle, Phone, Mail, Smartphone, Facebook, Twitch, LinkedinIcon, Instagram, X } from 'lucide-react';
 import type { MetaFunction } from 'react-router';
@@ -126,17 +130,17 @@ const Home = () => {
         {
             title: 'Banks & Financial ',
             subtitle: 'Institutions',
-            image: image2,
+            image: bank,
             bgColor: 'bg-purple-100',
         },
         {
             title: 'Insurance Companies',
-            image: image3,
+            image: insurance,
             bgColor: 'bg-yellow-100',
         },
         {
             title: 'Researchers & Academics',
-            image: image,
+            image: legal,
             bgColor: 'bg-pink-100',
         }
     ]
@@ -720,7 +724,7 @@ const Home = () => {
                         {/* Circular Image */}
                         <div className="w-24 h-24 md:w-32 md:h-32 mb-4 md:mb-6 overflow-hidden rounded-full bg-white shadow-md">
                             <img
-                                src={image2}
+                                src={other}
                                 alt="Banks & Financial Institutions"
                                 className="w-full h-full object-cover"
                             />

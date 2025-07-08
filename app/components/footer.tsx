@@ -53,7 +53,7 @@ const Footer = () => {
                                         <ul className="space-y-3">
                         <li><a href="/requestForm/request?service=court-search" className=" hover:text-[#32ADE6] transition-colors duration-300">Court Search</a></li>
                         <li><a href="/requestForm/request?service=document-verification" className=" hover:text-[#32ADE6] transition-colors duration-300">Document Verification</a></li>
-                        <li><a href="/requestForm/request?service=document-request" className=" hover:text-[#32ADE6] transition-colors duration-300">Court Document Request</a></li>
+                        <li><a href="/requestForm/request?service=document-request" className=" hover:text-[#32ADE6] transition-colors duration-300"> Document Request</a></li>
                         
                     </ul>
                 </div>

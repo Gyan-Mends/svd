@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import type { MetaFunction } from 'react-router';
+import image from "~/components/images/brenda.jpg"
 
 // Meta for the page
 export const meta: MetaFunction = () => {
@@ -103,13 +104,13 @@ export default function Contact() {
             <div className="space-y-8">
               <div>
                 <h1 className="text-4xl lg:text-5xl font-bold font-heading text-gray-900 leading-tight">
-                  Ready to Streamline Your<br />
-                  Legal Document Process<br />
-                  <span className="customed-text-color text-5xl lg:text-6xl">EFFICIENTLY?</span>
+                  Ready to Streamline Your
+                  Legal Document Process More
+                  <span className="customed-text-color text-5xl lg:text-6xl"> Effectively?</span>
                 </h1>
                 <p className="text-lg text-gray-600 mt-6 leading-relaxed">
                   Access Ghana's court system with ease. Our comprehensive document search, 
-                  verification, and request services help corporations and individuals 
+                  verification, and request services helps  law firms, litigators, banks,  businesses as well as  individuals and corporations   
                   navigate legal documentation efficiently.
                 </p>
               </div>
@@ -134,9 +135,9 @@ export default function Contact() {
               {/* Hero Image */}
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                  src={image} 
                   alt="Professional legal team ready to help" 
-                  className="w-full h-80 object-cover"
+                  className="w-full  h-[100vh] object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
                   <div className="font-semibold text-lg">Expert Legal Document Team</div>
@@ -301,7 +302,7 @@ export default function Contact() {
               Get in Touch with DL SVD
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our headquarters is strategically located to serve clients across Ghana. 
+              We are strategically positioned to serve clients across the country. 
               Reach out for consultations, urgent requests, or to learn more about our 
               court document services.
             </p>

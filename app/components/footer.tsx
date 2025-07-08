@@ -1,10 +1,6 @@
 import { Facebook, X, LinkedinIcon, Instagram } from 'lucide-react';
 
 const Footer = () => {
-    const handleEmailClick = (e: React.MouseEvent) => {
-        e.preventDefault();
-        window.location.href = 'mailto:dlservices@dennislawgh.com';
-    };
 
     return (
         <footer className=" ">
@@ -54,13 +50,11 @@ const Footer = () => {
                 {/* Services */}
                 <div>
                     <h3 className="text-xl font-bold mb-6">Our Services</h3>
-                    <ul className="space-y-3">
-                        <li><a href="#" className=" hover:[#32ADE6] transition-colors duration-300">Court Search</a></li>
-                        <li><a href="#" className=" hover:[#32ADE6] transition-colors duration-300">Document Verification</a></li>
-                        <li><a href="#" className=" hover:[#32ADE6] transition-colors duration-300">Legal Data Access</a></li>
-                        <li><a href="#" className=" hover:[#32ADE6] transition-colors duration-300">Background Checks</a></li>
-                        <li><a href="#" className=" hover:[#32ADE6] transition-colors duration-300">Compliance Services</a></li>
-                        <li><a href="#" className=" hover:[#32ADE6] transition-colors duration-300">Priority Processing</a></li>
+                                        <ul className="space-y-3">
+                        <li><a href="/requestForm/request?service=court-search" className=" hover:text-[#32ADE6] transition-colors duration-300">Court Search</a></li>
+                        <li><a href="/requestForm/request?service=document-verification" className=" hover:text-[#32ADE6] transition-colors duration-300">Document Verification</a></li>
+                        <li><a href="/requestForm/request?service=document-request" className=" hover:text-[#32ADE6] transition-colors duration-300">Court Document Request</a></li>
+                        
                     </ul>
                 </div>
 
@@ -76,7 +70,7 @@ const Footer = () => {
                             </div>
                             <div>
                                 <p className="">No. 15 Netflix Street,</p>
-                                <p className=""> Madina Estate, Off-Upsa Road</p>
+                                <p className=""> Madina Estate, Off-UPSA Road</p>
                             </div>
                         </div>
                         <div className="flex items-center space-x-3">
@@ -102,8 +96,7 @@ const Footer = () => {
                                 </svg>
                             </div>
                             <a 
-                                href="mailto:dlservices@dennislawgh.com"
-                                onClick={handleEmailClick}
+                                href="mailto:dlservices@dennislawgh.com?subject=Inquiry%20from%20SVD%20Website"
                                 className="hover:text-[#32ADE6] transition-colors duration-300 cursor-pointer"
                             >
                                 dlservices@dennislawgh.com
@@ -132,9 +125,9 @@ const Footer = () => {
                         © 2024 DL SVD. All rights reserved.
                     </div>
                     <div className="flex space-x-6 text-sm">
-                        <a href="#" className=" hover:text-white transition-colors duration-300">Privacy Policy</a>
-                        <a href="#" className=" hover:text-white transition-colors duration-300">Terms of Service</a>
-                        <a href="#" className=" hover:text-white transition-colors duration-300">Cookie Policy</a>
+                        <a href="/privacy-policy" className=" hover:text-blue-400 transition-colors duration-300">Privacy Policy</a>
+                        <a href="/terms-of-service" className=" hover:text-blue-400 transition-colors duration-300">Terms of Service</a>
+                        
                     </div>
                 </div>
             </div>

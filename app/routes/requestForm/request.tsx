@@ -448,7 +448,7 @@ const RequestForm = () => {
                         {/* Footer Note */}
                         <div className="text-center mt-6">
                             <p className="text-xs text-gray-500">
-                                By submitting this form, you agree to our Terms & Conditions and Privacy Policy
+                                By submitting this form, you agree to our <a href="/terms-of-service" className="text-blue-600 hover:text-blue-800 underline">Terms of Service</a> and <a href="/privacy-policy" className="text-blue-600 hover:text-blue-800 underline">Privacy Policy</a>
                             </p>
                         </div>
                     </div>

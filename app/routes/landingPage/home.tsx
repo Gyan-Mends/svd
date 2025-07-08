@@ -722,7 +722,7 @@ const Home = () => {
                             }`}
                     >
                         {/* Circular Image */}
-                        <div className="w-24 h-24 md:w-32 md:h-32 mb-4 md:mb-6 overflow-hidden rounded-full bg-white shadow-md">
+                        <div className="w-40 h-40 mb-4 md:mb-6 overflow-hidden rounded-full bg-white shadow-md">
                             <img
                                 src={other}
                                 alt="Banks & Financial Institutions"

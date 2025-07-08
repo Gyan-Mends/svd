@@ -293,17 +293,17 @@ const Home = () => {
                                     Your Trusted Partner
                                 </span><br />
                                 <span className={`inline-block transition-all duration-1000 delay-200 transform ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
-                                    for Court Searches &
+                                    for Court Searches, Verification of Document   &   
                                 </span><br />
                                 <span className={`inline-block transition-all duration-1000 delay-300 transform ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
-                                    Document Verification
+                                Document Request
                                 </span>
                             </h1>
 
                             {/* Subtitle with Typewriter Effect */}
                             <p className={`text-lg md:text-xl text-gray-200 mb-8 max-w-2xl leading-relaxed transition-all duration-1000 delay-500 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                                 }`}>
-                                From your home to your car, your business to your travels, we've got you covered.
+                                " DUE DILIGENCE SIMPLIFIED! "
                             </p>
 
                             {/* CTA Buttons with Staggered Animation */}

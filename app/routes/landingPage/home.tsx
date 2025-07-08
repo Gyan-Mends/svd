@@ -140,7 +140,7 @@ const Home = () => {
         },
         {
             title: 'Researchers & Academics',
-            image: legal,
+            image: other,
             bgColor: 'bg-pink-100',
         }
     ]
@@ -724,9 +724,9 @@ const Home = () => {
                         {/* Circular Image */}
                         <div className="w-40 h-40 mb-4 md:mb-6 overflow-hidden rounded-full bg-white shadow-md">
                             <img
-                                src={other}
+                                src={legal}
                                 alt="Banks & Financial Institutions"
-                                className="w-full h-full object-cover"
+                                className="w-full h-full "
                             />
                         </div>
 

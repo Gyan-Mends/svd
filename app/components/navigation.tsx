@@ -50,14 +50,24 @@ export default function Navigation() {
                     <nav className="hidden lg:flex items-center space-x-8">
                         {navigation.map((item) => (
                             item.isExternal ? (
-                                <Link
+                                <NavLink
                                     key={item.name}
                                     to={item.to}
-                                    className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 relative group"
+                                    className={({ isActive }) => 
+                                        `text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 relative group ${
+                                            isActive ? 'text-blue-600' : ''
+                                        }`
+                                    }
                                 >
-                                    {item.name}
-                                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                                </Link>
+                                    {({ isActive }) => (
+                                        <>
+                                            {item.name}
+                                            <span className={`absolute bottom-0 left-0 h-0.5 bg-blue-600 transition-all duration-300 ${
+                                                isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                                            }`}></span>
+                                        </>
+                                    )}
+                                </NavLink>
                             ) : (
                                 <a
                                     key={item.name}
@@ -97,14 +107,18 @@ export default function Navigation() {
                         <div className="flex flex-col space-y-4">
                             {navigation.map((item) => (
                                 item.isExternal ? (
-                                    <Link 
+                                    <NavLink 
                                         key={item.name}
                                         to={item.to} 
-                                        className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 py-2"
+                                        className={({ isActive }) => 
+                                            `text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 py-2 ${
+                                                isActive ? 'text-blue-600 bg-blue-50 px-3 py-2 rounded-md' : ''
+                                            }`
+                                        }
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
                                         {item.name}
-                                    </Link>
+                                    </NavLink>
                                 ) : (
                                     <a
                                         key={item.name}

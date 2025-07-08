@@ -40,7 +40,7 @@ export default function TermsOfService() {
                             <Scale className="w-6 h-6 text-gray-600" />
                             <div>
                                 <p className="text-sm text-gray-600">Last updated: {new Date().toLocaleDateString()}</p>
-                                <p className="text-gray-700 mt-1">Welcome to DL SVD. These Terms of Service govern your use of our website and services. By accessing or using our services, you agree to be bound by these Terms.</p>
+                                <p className="text-gray-700 mt-1">Welcome to DL SVD Services. These Terms of Service govern your use of our website and services. By accessing or using our services, you agree to be bound by these Terms.</p>
                             </div>
                         </div>
                     </div>

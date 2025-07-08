@@ -206,7 +206,7 @@ const RequestForm = () => {
                                 <FileText className="w-10 h-10 text-white" />
                             </div>
                         </div>
-                                                    <h1 className="text-2xl lg:text-3xl font-bold font-heading mb-4">
+                                <h1 className="text-2xl lg:text-3xl font-bold font-heading mb-4">
                                 Welcome to<br />
                                 <span className="text-3xl lg:text-4xl">SVD Services</span>
                             </h1>

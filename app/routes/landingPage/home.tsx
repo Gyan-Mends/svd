@@ -785,11 +785,11 @@ const Home = () => {
                             }}
                         >
                             {/* Circular Image */}
-                            <div className="w-24 h-24 md:w-32 md:h-32 mb-4 md:mb-6 overflow-hidden rounded-full bg-white shadow-md">
+                            <div className="h-40 w-40 mb-4 md:mb-6 overflow-hidden rounded-full bg-white shadow-md">
                                 <img
                                     src={beneficiary.image}
                                     alt={beneficiary.title}
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full "
                                 />
                             </div>
 

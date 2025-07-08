@@ -757,7 +757,7 @@ const Home = () => {
                             >
                                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                                     We offer a Subscription-Based and On-Demand Search, Document, and Verification (SVD) service
-                                    to help businesses and individuals access, verify, and request court-related documents efficiently.
+                                    to help businesses, individuals,  law firms,litigators, banks and corporations to access, verify, and request court-related documents efficiently.
                                 </p>
                             </div>
                         </div>
@@ -838,7 +838,7 @@ const Home = () => {
                                 >
                                     <h3 className="text-xl font-bold text-[#32ADE6] leading-tight">
                                         {commitment.title}
-                                    </h3>
+                                    </h3>businesses
                                     <p className="text-gray-600 text-base leading-relaxed">
                                         {commitment.description}
                                     </p>

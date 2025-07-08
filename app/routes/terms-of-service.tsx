@@ -20,7 +20,7 @@ export default function TermsOfService() {
                     <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-500">
                         <FileText className="w-8 h-8 text-blue-600 mb-3" />
                         <h3 className="text-lg font-semibold text-gray-900 mb-2">Court Services</h3>
-                        <p className="text-gray-600">Comprehensive court search and document verification services across Ghana.</p>
+                        <p className="text-gray-600">Comprehensive court search, document verification and document request services across Ghana.</p>
                     </div>
                     <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-500">
                         <Shield className="w-8 h-8 text-green-600 mb-3" />
@@ -34,7 +34,7 @@ export default function TermsOfService() {
                     </div>
                 </div>
 
-                <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div className=" rounded-xl  overflow-hidden">
                     <div className="bg-gradient-to-r from-gray-50 to-blue-50 p-6 border-b">
                         <div className="flex items-center space-x-3">
                             <Scale className="w-6 h-6 text-gray-600" />
@@ -74,7 +74,7 @@ export default function TermsOfService() {
                                     <ul className="space-y-2">
                                         <li className="flex items-start">
                                             <Check className="w-4 h-4 text-blue-500 mt-0.5 mr-2 flex-shrink-0" />
-                                            <span className="text-gray-700">Background checks and compliance</span>
+                                            <span className="text-gray-700">Background checks</span>
                                         </li>
                                         <li className="flex items-start">
                                             <Check className="w-4 h-4 text-blue-500 mt-0.5 mr-2 flex-shrink-0" />
@@ -234,10 +234,7 @@ export default function TermsOfService() {
                                             <Check className="w-4 h-4 text-indigo-500 mt-0.5 mr-2 flex-shrink-0" />
                                             <span>Late payment charges may apply</span>
                                         </li>
-                                        <li className="flex items-start">
-                                            <Check className="w-4 h-4 text-indigo-500 mt-0.5 mr-2 flex-shrink-0" />
-                                            <span>Refund policy available</span>
-                                        </li>
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -295,7 +292,7 @@ export default function TermsOfService() {
                             </div>
                             
                             <div className="bg-gradient-to-r from-red-50 to-pink-50 rounded-lg p-6">
-                                <p className="text-gray-700 mb-4">To the fullest extent permitted by law, DL SVD shall not be liable for:</p>
+                                <p className="text-gray-700 mb-4">To the fullest extent permitted by law, DL SVD Services shall not be liable for:</p>
                                 <div className="space-y-3">
                                     <div className="flex items-start space-x-3">
                                         <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -364,38 +361,7 @@ export default function TermsOfService() {
                             </div>
                         </section>
 
-                        {/* Contact Section */}
-                        <section className="bg-gradient-to-r from-gray-700 to-gray-900 text-white rounded-xl p-8">
-                            <div className="text-center mb-8">
-                                <h2 className="text-2xl font-semibold mb-2">Need Clarification on Our Terms?</h2>
-                                <p className="text-gray-300">Our team is here to help explain any aspects of our terms and services.</p>
-                            </div>
-                            
-                            <div className="grid md:grid-cols-3 gap-6 text-center">
-                                <div className="flex flex-col items-center">
-                                    <div className="w-12 h-12 bg-gray-600 rounded-full flex items-center justify-center mb-3">
-                                        <MapPin className="w-6 h-6" />
-                                    </div>
-                                    <p className="text-gray-300 text-sm">Address</p>
-                                    <p className="text-white font-medium">No. 15 Netflix Street</p>
-                                    <p className="text-white font-medium">Madina Estate, Off-UPSA Road</p>
-                                </div>
-                                <div className="flex flex-col items-center">
-                                    <div className="w-12 h-12 bg-gray-600 rounded-full flex items-center justify-center mb-3">
-                                        <Phone className="w-6 h-6" />
-                                    </div>
-                                    <p className="text-gray-300 text-sm">Phone</p>
-                                    <p className="text-white font-medium">+233 596 252 127</p>
-                                </div>
-                                <div className="flex flex-col items-center">
-                                    <div className="w-12 h-12 bg-gray-600 rounded-full flex items-center justify-center mb-3">
-                                        <Mail className="w-6 h-6" />
-                                    </div>
-                                    <p className="text-gray-300 text-sm">Email</p>
-                                    <p className="text-white font-medium">dlservices@dennislawgh.com</p>
-                                </div>
-                            </div>
-                        </section>
+                        
                     </div>
                 </div>
             </div>

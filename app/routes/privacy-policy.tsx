@@ -40,7 +40,7 @@ export default function PrivacyPolicy() {
                             <Info className="w-6 h-6 text-blue-600" />
                             <div>
                                 <p className="text-sm text-gray-600">Last updated: {new Date().toLocaleDateString()}</p>
-                                <p className="text-gray-700 mt-1">At DL SVD, we are committed to protecting your privacy and personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.</p>
+                                <p className="text-gray-700 mt-1">At DL SVD Services, we are committed to protecting your privacy and personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.</p>
                             </div>
                         </div>
                     </div>

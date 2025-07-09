@@ -307,7 +307,7 @@ const Home = () => {
                             {/* Subtitle with Typewriter Effect */}
                             <p className={`text-lg md:text-xl text-gray-200 mb-8 max-w-2xl leading-relaxed transition-all duration-1000 delay-500 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                                 }`}>
-                                " DUE DILIGENCE SIMPLIFIED! "
+                                 DUE DILIGENCE SIMPLIFIED! 
                             </p>
 
                             {/* CTA Buttons with Staggered Animation */}
@@ -352,9 +352,9 @@ const Home = () => {
             </div>
 
             {/* Services Section with Scroll Animations */}
-            <div className='bg-gradient-to-r from-blue-50 to-white min-h-screen'>
+            <div id="services" className='bg-gradient-to-r from-blue-50 to-white min-h-screen pt-20'>
 
-                <section id="services" ref={servicesRef} className="container mx-auto px-4 py-8 md:py-16 flex flex-col gap-8 md:gap-12">
+                <section  ref={servicesRef} className="container mx-auto px-4 py-8 md:py-16 flex flex-col gap-8 md:gap-12">
                     {/* Services Title with Scroll Animation */}
                     <h1
                         ref={servicesTitleRef}
@@ -438,42 +438,76 @@ const Home = () => {
                 {/* Why Choose Us Cards with Staggered Scroll Animation */}
                 <div
                     ref={whyChooseUsCardsRef}
-                    className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
+                    className="flex flex-col gap-6 md:gap-8"
                 >
-                    {whyChooseUs.map((item, index) => (
-                        <div
-                            key={index}
-                            className={`flex flex-col gap-4 md:gap-6 items-center justify-center text-center p-4 md:p-6 rounded-lg hover:shadow-lg transition-all duration-1000 transform ${isElementVisible('why-choose-us-cards')
-                                ? 'translate-y-0 opacity-100 scale-100'
-                                : 'translate-y-20 opacity-0 scale-95'
-                                }`}
-                            style={{
-                                transitionDelay: isElementVisible('why-choose-us-cards') ? `${index * 150}ms` : '0ms'
-                            }}
-                        >
-                            {/* Icon with Hover Animation */}
-                            <div className="transform transition-all duration-300 hover:scale-110 hover:rotate-3">
-                                <img src={item.image} alt={item.title} className="w-16 h-16" />
-                            </div>
+                    {/* First 3 items in a row */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                        {whyChooseUs.slice(0, 3).map((item, index) => (
+                            <div
+                                key={index}
+                                className={`flex flex-col gap-4 md:gap-6 items-center justify-center text-center p-4 md:p-6 rounded-lg hover:shadow-lg transition-all duration-1000 transform ${isElementVisible('why-choose-us-cards')
+                                    ? 'translate-y-0 opacity-100 scale-100'
+                                    : 'translate-y-20 opacity-0 scale-95'
+                                    }`}
+                                style={{
+                                    transitionDelay: isElementVisible('why-choose-us-cards') ? `${index * 150}ms` : '0ms'
+                                }}
+                            >
+                                {/* Icon with Hover Animation */}
+                                <div className="transform transition-all duration-300 hover:scale-110 hover:rotate-3">
+                                    <img src={item.image} alt={item.title} className="w-16 h-16" />
+                                </div>
 
-                            {/* Title and Description */}
-                            <div className="flex flex-col gap-3 md:gap-4 items-center justify-center">
-                                <h3 className="font-bold font-heading text-xl md:text-3xl text-color-blue">
-                                    {item.title}
-                                </h3>
-                                <p className="text-center text-gray-600 text-base md:text-lg leading-relaxed max-w-sm">
-                                    {item.description}
-                                </p>
+                                {/* Title and Description */}
+                                <div className="flex flex-col gap-3 md:gap-4 items-center justify-center">
+                                    <h3 className="font-bold font-heading text-xl md:text-3xl text-color-blue">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-center text-gray-600 text-base md:text-lg leading-relaxed max-w-sm">
+                                        {item.description}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
+
+                    {/* Last 2 items centered */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+                        {whyChooseUs.slice(3).map((item, index) => (
+                            <div
+                                key={index + 3}
+                                className={`flex flex-col gap-4 md:gap-6 items-center justify-center text-center p-4 md:p-6 rounded-lg hover:shadow-lg transition-all duration-1000 transform ${isElementVisible('why-choose-us-cards')
+                                    ? 'translate-y-0 opacity-100 scale-100'
+                                    : 'translate-y-20 opacity-0 scale-95'
+                                    }`}
+                                style={{
+                                    transitionDelay: isElementVisible('why-choose-us-cards') ? `${(index + 3) * 150}ms` : '0ms'
+                                }}
+                            >
+                                {/* Icon with Hover Animation */}
+                                <div className="transform transition-all duration-300 hover:scale-110 hover:rotate-3">
+                                    <img src={item.image} alt={item.title} className="w-16 h-16" />
+                                </div>
+
+                                {/* Title and Description */}
+                                <div className="flex flex-col gap-3 md:gap-4 items-center justify-center">
+                                    <h3 className="font-bold font-heading text-xl md:text-3xl text-color-blue">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-center text-gray-600 text-base md:text-lg leading-relaxed max-w-sm">
+                                        {item.description}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
 
             {/* How It Works Section with Scroll Animations */}
             <section id="how-it-works" ref={howItWorksRef} className="relative py-8 md:py-20 px-4 md:px-10 overflow-hidden">
                 {/* Large Blue Circular Background Element - Responsive */}
-                <div className="absolute top-0 mt-10 md:mt-20 !ml-40 right-0 w-[400px] h-[400px] md:w-[700px] md:h-[820px] bg-[#54C4F8] rounded-full transform translate-x-1/4 -translate-y-1/4"></div>
+                <div className="absolute top-0 mt-10 md:mt-20 !ml-40 right-0 w-[400px] h-[400px] md:w-[700px] md:h-[820px] bg-[#32ADE6] rounded-full transform translate-x-1/4 -translate-y-1/4"></div>
 
                 <div className="container mx-auto relative z-10">
                     {/* How It Works Title with Scroll Animation - Responsive */}
@@ -492,7 +526,7 @@ const Home = () => {
                         ref={howItWorksStepsRef}
                         className="relative min-h-[500px] md:min-h-[700px] w-full"
                     >
-                        {/* Animated Curved Path - Responsive */}
+                        {/* Solid Curved Path - Responsive */}
                         <svg
                             className={`absolute top-0 left-0 w-full h-1/3 md:h-1/2 transition-all duration-2000 ${isElementVisible('how-it-works-steps') ? 'opacity-100' : 'opacity-0'}`}
                             viewBox="0 0 1000 300"
@@ -500,10 +534,9 @@ const Home = () => {
                         >
                             <path
                                 d="M100,250 Q300,150 500,180 Q700,210 900,80"
-                                stroke="url(#gradient)"
+                                stroke="#32ADE6"
                                 strokeWidth="4"
                                 fill="none"
-                                strokeDasharray="15,8"
                                 className={`${isElementVisible('how-it-works-steps') ? 'animate-pulse' : ''} md:stroke-[6]`}
                             />
                             <defs>
@@ -514,16 +547,16 @@ const Home = () => {
                             </defs>
 
                             {/* Animated Dots on the Path - Responsive */}
-                            <circle cx="100" cy="250" r="4" fill="url(#gradient)" className={`${isElementVisible('how-it-works-steps') ? 'animate-pulse' : ''} md:r-6`}>
+                            <circle cx="100" cy="250" r="4" fill="#32ADE6" className={`${isElementVisible('how-it-works-steps') ? 'animate-pulse' : ''} md:r-6`}>
                                 <animate attributeName="r" values="3;6;3" dur="2s" repeatCount="indefinite" />
                             </circle>
-                            <circle cx="350" cy="165" r="4" fill="url(#gradient)" className={`${isElementVisible('how-it-works-steps') ? 'animate-pulse' : ''} md:r-6`}>
+                            <circle cx="350" cy="165" r="4" fill="#32ADE6" className={`${isElementVisible('how-it-works-steps') ? 'animate-pulse' : ''} md:r-6`}>
                                 <animate attributeName="r" values="3;6;3" dur="2s" repeatCount="indefinite" begin="0.5s" />
                             </circle>
-                            <circle cx="650" cy="195" r="4" fill="url(#gradient)" className={`${isElementVisible('how-it-works-steps') ? 'animate-pulse' : ''} md:r-6`}>
+                            <circle cx="650" cy="195" r="4" fill="#32ADE6" className={`${isElementVisible('how-it-works-steps') ? 'animate-pulse' : ''} md:r-6`}>
                                 <animate attributeName="r" values="3;6;3" dur="2s" repeatCount="indefinite" begin="1s" />
                             </circle>
-                            <circle cx="900" cy="80" r="4" fill="url(#gradient)" className={`${isElementVisible('how-it-works-steps') ? 'animate-pulse' : ''} md:r-6`}>
+                            <circle cx="900" cy="80" r="4" fill="#32ADE6" className={`${isElementVisible('how-it-works-steps') ? 'animate-pulse' : ''} md:r-6`}>
                                 <animate attributeName="r" values="3;6;3" dur="2s" repeatCount="indefinite" begin="1.5s" />
                             </circle>
                         </svg>
@@ -606,9 +639,9 @@ const Home = () => {
 
                         {/* Desktop/Tablet Layout - Positioned */}
                         <div className="hidden md:block">
-                            {/* Step 1 - Bottom Left (under the line) */}
+                            {/* Step 1 - Lowest Position (left) */}
                             <div
-                                className={`absolute top-40 lg:top-60 left-0 w-64 lg:w-80 transition-all duration-1000 transform ${isElementVisible('how-it-works-steps')
+                                className={`absolute top-48 lg:top-72 left-0 w-64 lg:w-80 transition-all duration-1000 transform ${isElementVisible('how-it-works-steps')
                                     ? 'translate-y-0 opacity-100 scale-100'
                                     : 'translate-y-20 opacity-0 scale-95'
                                     }`}
@@ -632,9 +665,9 @@ const Home = () => {
                                 </div>
                             </div>
 
-                            {/* Step 2 - Top Left (under the line) */}
+                            {/* Step 2 - Higher Position (left-center) */}
                             <div
-                                className={`absolute top-24 lg:top-40 left-1/4 w-64 lg:w-80 transition-all duration-1000 transform ${isElementVisible('how-it-works-steps')
+                                className={`absolute top-32 lg:top-48 left-1/4 w-64 lg:w-80 transition-all duration-1000 transform ${isElementVisible('how-it-works-steps')
                                     ? 'translate-y-0 opacity-100 scale-100'
                                     : 'translate-y-20 opacity-0 scale-95'
                                     }`}
@@ -657,9 +690,9 @@ const Home = () => {
                                 </div>
                             </div>
 
-                            {/* Step 3 - Bottom Center (under the line) */}
+                            {/* Step 3 - Even Higher Position (right-center) */}
                             <div
-                                className={`absolute top-32 lg:top-48 right-1/4 w-64 lg:w-80 transition-all duration-1000 transform ${isElementVisible('how-it-works-steps')
+                                className={`absolute top-20 lg:top-32 right-1/4 w-64 lg:w-80 transition-all duration-1000 transform ${isElementVisible('how-it-works-steps')
                                     ? 'translate-y-0 opacity-100 scale-100'
                                     : 'translate-y-20 opacity-0 scale-95'
                                     }`}
@@ -682,9 +715,9 @@ const Home = () => {
                                 </div>
                             </div>
 
-                            {/* Step 4 - Top Right (under the line, within blue circle area) */}
+                            {/* Step 4 - Highest Position (right, within blue circle area) */}
                             <div
-                                className={`absolute top-20 lg:top-32 right-0 w-64 lg:w-80 transition-all duration-1000 transform ${isElementVisible('how-it-works-steps')
+                                className={`absolute top-6 lg:top-8 right-0 w-64 lg:w-80 transition-all duration-1000 transform ${isElementVisible('how-it-works-steps')
                                     ? 'translate-y-0 opacity-100 scale-100'
                                     : 'translate-y-20 opacity-0 scale-95'
                                     }`}
@@ -694,12 +727,12 @@ const Home = () => {
                             >
                                 <div className="mt-6 lg:mt-10 p-4 lg:p-6 transition-all duration-300">
                                     <div className="items-start gap-4">
-                                        <p className='text-6xl lg:text-8xl text-center font-bold text-gray-400 mb-4'>4</p>
+                                        <p className='text-6xl lg:text-8xl text-center font-bold text-white mb-4'>4</p>
                                         <div className="flex-1">
-                                            <h3 className="font-bold text-xl lg:text-2xl text-gray-800 mb-3">
+                                            <h3 className="font-bold text-xl lg:text-2xl text-white mb-3">
                                                 Receive Your Results
                                             </h3>
-                                            <div className="text-gray-600 text-base lg:text-lg leading-relaxed">
+                                            <div className="text-white text-base lg:text-lg leading-relaxed">
                                                 <p className="mb-2">• Get your verified court documents or search results via email, WhatsApp, or our online platform.</p>
                                             </div>
                                         </div>
@@ -808,7 +841,7 @@ const Home = () => {
             </section>
 
             {/* Our Commitment to Excellence Section with Scroll Animations - Fixed Mobile Layout */}
-            <section id="our-commitment" ref={commitmentRef} className="relative py-16 px-4 min-h-screen bg-gradient-to-br from-gray-50 to-white">
+            <section id="our-commitment" ref={commitmentRef} className="relative py-16 pt-20 px-4 min-h-screen bg-gradient-to-br from-gray-50 to-white">
                 <div className="container mx-auto flex flex-col gap-12">
                     {/* Our Commitment Title with Scroll Animation */}
                     <h1 

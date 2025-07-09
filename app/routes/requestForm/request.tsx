@@ -8,9 +8,6 @@ const RequestForm = () => {
         country: '',
         email: '',
         phoneNumber: '',
-        reasonForRequest: '',
-        verificationDocuments: false,
-        requestedDocument: '',
         instructions: ''
     });
 
@@ -61,19 +58,11 @@ const RequestForm = () => {
     const serviceContent = getServiceContent();
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-        const { name, value, type } = e.target;
-        if (type === 'checkbox') {
-            const target = e.target as HTMLInputElement;
-            setFormData(prev => ({
-                ...prev,
-                [name]: target.checked
-            }));
-        } else {
-            setFormData(prev => ({
-                ...prev,
-                [name]: value
-            }));
-        }
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
     };
 
     const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -174,9 +163,6 @@ const RequestForm = () => {
                     country: '',
                     email: '',
                     phoneNumber: '',
-                    reasonForRequest: '',
-                    verificationDocuments: false,
-                    requestedDocument: '',
                     instructions: ''
                 });
                 setUploadedFiles([]);
@@ -262,7 +248,7 @@ const RequestForm = () => {
                                     </div>
                                     <div>
                                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                                            Country *
+                                            Country
                                         </label>
                                         <input
                                             type="text"
@@ -271,7 +257,6 @@ const RequestForm = () => {
                                             onChange={handleInputChange}
                                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                             placeholder="Enter your country"
-                                            required
                                         />
                                     </div>
                                 </div>
@@ -293,7 +278,7 @@ const RequestForm = () => {
                                     </div>
                                     <div>
                                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                                            Phone Number *
+                                            Phone Number
                                         </label>
                                         <input
                                             type="tel"
@@ -302,149 +287,93 @@ const RequestForm = () => {
                                             onChange={handleInputChange}
                                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                             placeholder="Enter your phone number"
-                                            required
                                         />
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Request Details Section */}
-                            <div>
-                                <div className="mb-4">
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                                        Reason for Request *
-                                    </label>
-                                    <select
-                                        name="reasonForRequest"
-                                        value={formData.reasonForRequest}
-                                        onChange={handleInputChange}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                        required
-                                    >
-                                        <option value="">Select reason for request</option>
-                                        <option value="background-check">Background Check</option>
-                                        <option value="due-diligence">Due Diligence</option>
-                                        <option value="legal-research">Legal Research</option>
-                                        <option value="compliance">Compliance Verification</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-
-                                <div className="mb-4">
-                                    <label className="flex items-center space-x-3">
-                                        <input
-                                            type="checkbox"
-                                            name="verificationDocuments"
-                                            checked={formData.verificationDocuments}
-                                            onChange={handleInputChange}
-                                            className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                                        />
-                                        <span className="text-sm text-gray-700">
-                                            Verification of documents
-                                        </span>
-                                    </label>
-                                </div>
-
-                                <div className="mb-4">
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                                        Requested for document
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="requestedDocument"
-                                        value={formData.requestedDocument}
-                                        onChange={handleInputChange}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                        placeholder="Specify the document type"
-                                    />
-                                </div>
-
-                                <div className="mb-6">
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                                        Instructions
-                                    </label>
-                                    <textarea
-                                        name="instructions"
-                                        value={formData.instructions}
-                                        onChange={handleInputChange}
-                                        rows={4}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                                        placeholder="Please provide any additional instructions or details for your request..."
-                                    />
-                                </div>
-                            </div>
-
-                            {/* File Upload Section */}
-                            <div>
+                            {/* Instructions Section */}
+                            <div className="mb-6">
                                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                                    Upload Supporting Documents
+                                    Instructions
                                 </label>
-                                <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-400 transition-colors">
-                                    <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
-                                    <p className="text-sm text-gray-600 mb-2">Drag and drop your files here</p>
-                                    <p className="text-xs text-gray-500 mb-4">or click to browse files</p>
-                                    <input
-                                        type="file"
-                                        multiple
-                                        onChange={handleFileUpload}
-                                        className="hidden"
-                                        id="file-upload"
-                                        accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-                                    />
-                                    <label
-                                        htmlFor="file-upload"
-                                        className="inline-flex items-center px-4 py-2 bg-blue-50 text-blue-600 rounded-lg cursor-pointer hover:bg-blue-100 transition-colors"
-                                    >
-                                        <Upload className="w-4 h-4 mr-2" />
-                                        Browse Files
-                                    </label>
-                                </div>
-
-                                {/* Uploaded Files List */}
-                                {uploadedFiles.length > 0 && (
-                                    <div className="mt-4">
-                                        <h4 className="text-sm font-medium text-gray-700 mb-2">Uploaded Files:</h4>
-                                        <div className="space-y-2">
-                                            {uploadedFiles.map((file, index) => (
-                                                <div key={index} className="flex items-center justify-between space-x-2 text-sm text-gray-600 bg-gray-50 p-2 rounded">
-                                                    <div className="flex items-center space-x-2 min-w-0">
-                                                        <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
-                                                        <span className="truncate">{file.name}</span>
-                                                        <span className="text-xs text-gray-400 flex-shrink-0">
-                                                            ({(file.size / 1024 / 1024).toFixed(2)} MB)
-                                                        </span>
-                                                    </div>
-                                                    <button
-                                                        type="button"
-                                                        onClick={() => removeFile(index)}
-                                                        className="text-red-500 hover:text-red-700 text-xs ml-2 flex-shrink-0"
-                                                    >
-                                                        Remove
-                                                    </button>
-                                                </div>
-                                            ))}
-                                        </div>
-                                        <p className="text-xs text-gray-500 mt-2">
-                                            Supported formats: PDF, DOC, DOCX, JPG, PNG, TXT (Max 10MB each)
-                                        </p>
-                                    </div>
-                                )}
+                                <textarea
+                                    name="instructions"
+                                    value={formData.instructions}
+                                    onChange={handleInputChange}
+                                    rows={4}
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                                    placeholder="Please provide any additional instructions or details for your request..."
+                                />
                             </div>
 
-                            {/* Submit Buttons */}
-                            <div className="flex flex-col sm:flex-row gap-4 pt-6">
+                            {/* File Upload Section - Only show for document-verification */}
+                            {serviceType === 'document-verification' && (
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Upload Supporting Documents
+                                    </label>
+                                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-400 transition-colors">
+                                        <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
+                                        <p className="text-sm text-gray-600 mb-2">Drag and drop your files here</p>
+                                        <p className="text-xs text-gray-500 mb-4">or click to browse files</p>
+                                        <input
+                                            type="file"
+                                            multiple
+                                            onChange={handleFileUpload}
+                                            className="hidden"
+                                            id="file-upload"
+                                            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                                        />
+                                        <label
+                                            htmlFor="file-upload"
+                                            className="inline-flex items-center px-4 py-2 bg-blue-50 text-blue-600 rounded-lg cursor-pointer hover:bg-blue-100 transition-colors"
+                                        >
+                                            <Upload className="w-4 h-4 mr-2" />
+                                            Browse Files
+                                        </label>
+                                    </div>
+
+                                    {/* Uploaded Files List */}
+                                    {uploadedFiles.length > 0 && (
+                                        <div className="mt-4">
+                                            <h4 className="text-sm font-medium text-gray-700 mb-2">Uploaded Files:</h4>
+                                            <div className="space-y-2">
+                                                {uploadedFiles.map((file, index) => (
+                                                    <div key={index} className="flex items-center justify-between space-x-2 text-sm text-gray-600 bg-gray-50 p-2 rounded">
+                                                        <div className="flex items-center space-x-2 min-w-0">
+                                                            <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                            <span className="truncate">{file.name}</span>
+                                                            <span className="text-xs text-gray-400 flex-shrink-0">
+                                                                ({(file.size / 1024 / 1024).toFixed(2)} MB)
+                                                            </span>
+                                                        </div>
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => removeFile(index)}
+                                                            className="text-red-500 hover:text-red-700 text-xs ml-2 flex-shrink-0"
+                                                        >
+                                                            Remove
+                                                        </button>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                            <p className="text-xs text-gray-500 mt-2">
+                                                Supported formats: PDF, DOC, DOCX, JPG, PNG, TXT (Max 10MB each)
+                                            </p>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+
+                            {/* Submit Button */}
+                            <div className="pt-6">
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-300 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-300 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     {isSubmitting ? 'Submitting...' : 'Submit Request'}
-                                </button>
-                                <button
-                                    type="button"
-                                    className="flex-1 bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors duration-300 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
-                                >
-                                    Save Draft
                                 </button>
                             </div>
                         </form>

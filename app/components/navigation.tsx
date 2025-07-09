@@ -39,10 +39,8 @@ export default function Navigation() {
                         className="flex items-center space-x-2 transform hover:scale-105 transition-transform duration-200 flex-col items-center h-full justify-center"
                     >
                        <div className="flex items-center space-x-2 mb-6">
-                                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                                    <span className=" font-bold text-xl">DL</span>
-                                </div>
-                                <span className="text-2xl font-bold">SVD</span>
+                                
+                                <span className="text-2xl font-bold"><span className="text-blue-600">Dennislaw</span> SVD Services</span>
                             </div>
                     </Link>
 

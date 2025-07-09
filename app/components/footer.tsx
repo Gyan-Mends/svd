@@ -10,10 +10,8 @@ const Footer = () => {
                 {/* Company Info */}
                 <div className="lg:col-span-1">
                     <div className="flex items-center space-x-2 mb-6">
-                        <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                            <span className=" font-bold text-xl">DL</span>
-                        </div>
-                        <span className="text-2xl font-bold">SVD</span>
+                       
+                        <span className="text-2xl font-bold"> <span className="text-blue-600">Dennislaw</span> SVD Services</span>
                     </div>
                     <p className=" mb-6 leading-relaxed">
                         Your trusted partner for comprehensive court search, document verification, and legal data access services across Ghana.

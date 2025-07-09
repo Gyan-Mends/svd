@@ -344,7 +344,7 @@ export default function Contact() {
             {/* Office Marker */}
             <div className="absolute top-6 left-6 bg-[#32ADE6] text-white px-4 py-2 rounded-lg shadow-lg flex items-center space-x-2">
               <span className="text-lg">📍</span>
-              <span className="font-semibold text-sm">DL SVD HEADQUARTERS</span>
+              <span className="font-semibold text-sm">Dennislaw SVD Services Headquarters</span>
             </div>
           </div>
         </div>

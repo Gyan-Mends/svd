@@ -8,7 +8,7 @@ const RequestForm = () => {
         country: '',
         email: '',
         phoneNumber: '',
-        instructions: ''
+        comments: ''
     });
 
     const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
@@ -163,7 +163,7 @@ const RequestForm = () => {
                     country: '',
                     email: '',
                     phoneNumber: '',
-                    instructions: ''
+                    comments: ''
                 });
                 setUploadedFiles([]);
             } else {
@@ -292,18 +292,18 @@ const RequestForm = () => {
                                 </div>
                             </div>
 
-                            {/* Instructions Section */}
+                            {/* Comments Section */}
                             <div className="mb-6">
                                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                                    Instructions
+                                    Comments
                                 </label>
                                 <textarea
-                                    name="instructions"
-                                    value={formData.instructions}
+                                    name="comments"
+                                    value={formData.comments}
                                     onChange={handleInputChange}
                                     rows={4}
                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                                    placeholder="Please provide any additional instructions or details for your request..."
+                                    placeholder="Please provide any additional comments or details for your request..."
                                 />
                             </div>
 

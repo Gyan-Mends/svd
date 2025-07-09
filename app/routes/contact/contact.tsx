@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { MetaFunction } from 'react-router';
-import image from "~/components/images/brenda.jpg"
+import image from "~/components/images/Breda.jpg"
 
 // Meta for the page
 export const meta: MetaFunction = () => {
@@ -135,9 +135,9 @@ export default function Contact() {
               {/* Hero Image */}
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img 
-                  src={image} 
+                  src={image}
                   alt="Professional legal team ready to help" 
-                  className="w-full  h-[100vh] object-cover"
+                  className="w-full  h-full object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
                   <div className="font-semibold text-lg">Expert Legal Document Team</div>

@@ -40,7 +40,7 @@ export default function Navigation() {
                     >
                        <div className="flex items-center space-x-2 mb-6">
                                 
-                                <span className="text-2xl font-bold"><span className="customed-text-color">Dennislaw</span> SVD Services</span>
+                                <span className="text-2xl font-bold"><span className="text-[#32ADE6]">Dennislaw</span> SVD Services</span>
                             </div>
                     </Link>
 

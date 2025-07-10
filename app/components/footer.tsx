@@ -14,20 +14,26 @@ const Footer = () => {
                         <span className="text-2xl font-bold"> <span className="text-[#32ADE6]">Dennislaw</span> SVD Services</span>
                     </div>
                     <p className=" mb-6 leading-relaxed">
-                        Your trusted partner for comprehensive court search, document verification, and legal data access services across Ghana.
+                        Your trusted partner for comprehensive court search, document verification, and document request across Ghana.
                     </p>
-                    <div className="flex space-x-4">
-                        <a href='https://web.facebook.com/dennislawnews' className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors duration-300">
+                    <div className="flex space-x-4 flex-wrap">
+                        <a href='https://facebook.com/dennislawghana' target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors duration-300">
                             <span className="text-sm font-bold text-white"><Facebook /></span>
                         </a>
-                        <a href="https://x.com/dennislawnews" className="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors duration-300">
+                        <a href="https://x.com/dennislaw_ghana" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors duration-300">
                             <span className="text-sm font-bold text-white"><X /></span>
                         </a>
-                        <a href="https://www.linkedin.com/company/dennis-law-ghana" className="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors duration-300">
+                        <a href="https://gh.linkedin.com/company/dennis-law-ghana" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors duration-300">
                             <span className="text-sm font-bold text-white"><LinkedinIcon /></span>
                         </a>
-                        <a href='https://www.instagram.com/dennislawnews/' className="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors duration-300">
+                        <a href='https://www.instagram.com/dennislaw_ghana/' target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors duration-300">
                             <span className="text-sm font-bold text-white"><Instagram /></span>
+                        </a>
+                        <a href="https://www.threads.com/@dennislaw_ghana" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-default-500 rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors duration-300">
+                            <span className="text-sm font-bold text-white">@</span>
+                        </a>
+                        <a href="https://www.tiktok.com/@dennislaw_ghana" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-black/80 rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors duration-300">
+                            <span className="text-sm font-bold text-white">♪</span>
                         </a>
                     </div>
                 </div>

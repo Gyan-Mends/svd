@@ -526,18 +526,18 @@ const Home = () => {
                         ref={howItWorksStepsRef}
                         className="relative min-h-[500px] md:min-h-[700px] w-full"
                     >
-                        {/* Solid Curved Path - Responsive */}
+                        {/* Solid Curved Path - Desktop Only */}
                         <svg
-                            className={`absolute top-0 left-0 w-full h-1/3 md:h-1/2 transition-all duration-2000 ${isElementVisible('how-it-works-steps') ? 'opacity-100' : 'opacity-0'}`}
+                            className={`hidden md:block absolute top-0 left-0 w-full h-1/2 transition-all duration-2000 ${isElementVisible('how-it-works-steps') ? 'opacity-100' : 'opacity-0'}`}
                             viewBox="0 0 1000 300"
                             preserveAspectRatio="xMidYMid meet"
                         >
                             <path
                                 d="M100,250 Q300,150 500,180 Q700,210 900,80"
                                 stroke="#32ADE6"
-                                strokeWidth="4"
+                                strokeWidth="6"
                                 fill="none"
-                                className={`${isElementVisible('how-it-works-steps') ? 'animate-pulse' : ''} md:stroke-[6]`}
+                                className={`${isElementVisible('how-it-works-steps') ? 'animate-pulse' : ''}`}
                             />
                             <defs>
                                 <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -546,18 +546,18 @@ const Home = () => {
                                 </linearGradient>
                             </defs>
 
-                            {/* Animated Dots on the Path - Responsive */}
-                            <circle cx="100" cy="250" r="4" fill="#32ADE6" className={`${isElementVisible('how-it-works-steps') ? 'animate-pulse' : ''} md:r-6`}>
-                                <animate attributeName="r" values="3;6;3" dur="2s" repeatCount="indefinite" />
+                            {/* Animated Dots on the Path - Desktop Only */}
+                            <circle cx="100" cy="250" r="6" fill="#32ADE6" className={`${isElementVisible('how-it-works-steps') ? 'animate-pulse' : ''}`}>
+                                <animate attributeName="r" values="4;8;4" dur="2s" repeatCount="indefinite" />
                             </circle>
-                            <circle cx="350" cy="165" r="4" fill="#32ADE6" className={`${isElementVisible('how-it-works-steps') ? 'animate-pulse' : ''} md:r-6`}>
-                                <animate attributeName="r" values="3;6;3" dur="2s" repeatCount="indefinite" begin="0.5s" />
+                            <circle cx="350" cy="165" r="6" fill="#32ADE6" className={`${isElementVisible('how-it-works-steps') ? 'animate-pulse' : ''}`}>
+                                <animate attributeName="r" values="4;8;4" dur="2s" repeatCount="indefinite" begin="0.5s" />
                             </circle>
-                            <circle cx="650" cy="195" r="4" fill="#32ADE6" className={`${isElementVisible('how-it-works-steps') ? 'animate-pulse' : ''} md:r-6`}>
-                                <animate attributeName="r" values="3;6;3" dur="2s" repeatCount="indefinite" begin="1s" />
+                            <circle cx="650" cy="195" r="6" fill="#32ADE6" className={`${isElementVisible('how-it-works-steps') ? 'animate-pulse' : ''}`}>
+                                <animate attributeName="r" values="4;8;4" dur="2s" repeatCount="indefinite" begin="1s" />
                             </circle>
-                            <circle cx="900" cy="80" r="4" fill="#32ADE6" className={`${isElementVisible('how-it-works-steps') ? 'animate-pulse' : ''} md:r-6`}>
-                                <animate attributeName="r" values="3;6;3" dur="2s" repeatCount="indefinite" begin="1.5s" />
+                            <circle cx="900" cy="80" r="6" fill="#32ADE6" className={`${isElementVisible('how-it-works-steps') ? 'animate-pulse' : ''}`}>
+                                <animate attributeName="r" values="4;8;4" dur="2s" repeatCount="indefinite" begin="1.5s" />
                             </circle>
                         </svg>
 
@@ -875,7 +875,7 @@ const Home = () => {
                                 >
                                     <h3 className="text-xl font-bold text-[#32ADE6] leading-tight">
                                         {commitment.title}
-                                    </h3>businesses
+                                    </h3>
                                     <p className="text-gray-600 text-base leading-relaxed">
                                         {commitment.description}
                                     </p>

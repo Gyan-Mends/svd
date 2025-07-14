@@ -443,32 +443,32 @@ const Home = () => {
                     {/* First 3 items in a row */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                         {whyChooseUs.slice(0, 3).map((item, index) => (
-                            <div
-                                key={index}
-                                className={`flex flex-col gap-4 md:gap-6 items-center justify-center text-center p-4 md:p-6 rounded-lg hover:shadow-lg transition-all duration-1000 transform ${isElementVisible('why-choose-us-cards')
-                                    ? 'translate-y-0 opacity-100 scale-100'
-                                    : 'translate-y-20 opacity-0 scale-95'
-                                    }`}
-                                style={{
-                                    transitionDelay: isElementVisible('why-choose-us-cards') ? `${index * 150}ms` : '0ms'
-                                }}
-                            >
-                                {/* Icon with Hover Animation */}
-                                <div className="transform transition-all duration-300 hover:scale-110 hover:rotate-3">
-                                    <img src={item.image} alt={item.title} className="w-16 h-16" />
-                                </div>
-
-                                {/* Title and Description */}
-                                <div className="flex flex-col gap-3 md:gap-4 items-center justify-center">
-                                    <h3 className="font-bold font-heading text-xl md:text-3xl text-color-blue">
-                                        {item.title}
-                                    </h3>
-                                    <p className="text-center text-gray-600 text-base md:text-lg leading-relaxed max-w-sm">
-                                        {item.description}
-                                    </p>
-                                </div>
+                        <div
+                            key={index}
+                            className={`flex flex-col gap-4 md:gap-6 items-center justify-center text-center p-4 md:p-6 rounded-lg hover:shadow-lg transition-all duration-1000 transform ${isElementVisible('why-choose-us-cards')
+                                ? 'translate-y-0 opacity-100 scale-100'
+                                : 'translate-y-20 opacity-0 scale-95'
+                                }`}
+                            style={{
+                                transitionDelay: isElementVisible('why-choose-us-cards') ? `${index * 150}ms` : '0ms'
+                            }}
+                        >
+                            {/* Icon with Hover Animation */}
+                            <div className="transform transition-all duration-300 hover:scale-110 hover:rotate-3">
+                                <img src={item.image} alt={item.title} className="w-16 h-16" />
                             </div>
-                        ))}
+
+                            {/* Title and Description */}
+                            <div className="flex flex-col gap-3 md:gap-4 items-center justify-center">
+                                <h3 className="font-bold font-heading text-xl md:text-3xl text-color-blue">
+                                    {item.title}
+                                </h3>
+                                <p className="text-center text-gray-600 text-base md:text-lg leading-relaxed max-w-sm">
+                                    {item.description}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
                     </div>
 
                     {/* Last 2 items centered */}

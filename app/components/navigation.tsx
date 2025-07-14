@@ -1,15 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Users, Menu, X } from "lucide-react";
 import { Link, NavLink } from "react-router";
 
 const navigation = [
     { name: "Home", to: "/", isExternal: true },
-    { name: "Our Services", to: "/#services", isExternal: true },
+    { name: "Our Services", to: "#services", isExternal: false },
     { name: "Pricing", to: "/pricing", isExternal: true },
     { name: "Request Form", to: "/requestForm/request", isExternal: true },
 ];
 export default function Navigation() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState('');
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = ['about', 'how-it-works', 'who-can-benefit', 'our-commitment'];
+            const scrollPosition = window.scrollY + 100;
+
+            for (const section of sections) {
+                const element = document.getElementById(section);
+                if (element) {
+                    const { offsetTop, offsetHeight } = element;
+                    if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                        setActiveSection(section);
+                        return;
+                    }
+                }
+            }
+            setActiveSection('');
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isExternal: boolean) => {
         if (isExternal) {
@@ -19,6 +42,15 @@ export default function Navigation() {
         }
         
         e.preventDefault();
+        
+        // Check if we're on the home page
+        if (window.location.pathname !== '/') {
+            // Navigate to home page first, then scroll to section
+            window.location.href = `/${href}`;
+            return;
+        }
+        
+        // We're already on home page, just scroll to section
         const targetId = href.replace('#', '');
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
@@ -38,8 +70,7 @@ export default function Navigation() {
                         to="/" 
                         className="flex items-center space-x-2 transform hover:scale-105 transition-transform duration-200 flex-col items-center h-full justify-center"
                     >
-                       <div className="flex items-center space-x-2 mb-6">
-                                
+                       <div className="flex items-center space-x-2 mb-6">                               
                                 <span className="text-2xl font-bold"><span className="text-[#32ADE6]">Dennislaw</span> SVD Services</span>
                             </div>
                     </Link>
@@ -70,11 +101,15 @@ export default function Navigation() {
                                 <a
                                     key={item.name}
                                     href={item.to}
-                                    className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 relative group"
+                                    className={`font-medium transition-colors duration-200 relative group ${
+                                        activeSection === item.to.replace('#', '') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
+                                    }`}
                                     onClick={(e) => handleSmoothScroll(e, item.to, item.isExternal)}
                                 >
                                     {item.name}
-                                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                                    <span className={`absolute bottom-0 left-0 h-0.5 bg-blue-600 transition-all duration-300 ${
+                                        activeSection === item.to.replace('#', '') ? 'w-full' : 'w-0 group-hover:w-full'
+                                    }`}></span>
                                 </a>
                             )
                         ))}
@@ -101,7 +136,7 @@ export default function Navigation() {
 
                 {/* Mobile Navigation */}
                 {mobileMenuOpen && (
-                    <nav className="lg:hidden mt-4 pb-4 border-t pt-4 animate-fade-in">
+                    <nav className="lg:hidden mt-4 pb-4 border-t pt-4 animate-fade-in ">
                         <div className="flex flex-col space-y-4">
                             {navigation.map((item) => (
                                 item.isExternal ? (
@@ -121,7 +156,9 @@ export default function Navigation() {
                                     <a
                                         key={item.name}
                                         href={item.to}
-                                        className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 py-2"
+                                        className={`font-medium transition-colors duration-200 py-2 ${
+                                            activeSection === item.to.replace('#', '') ? 'text-blue-600 bg-blue-50 px-3 py-2 rounded-md' : 'text-gray-700 hover:text-blue-600'
+                                        }`}
                                         onClick={(e) => handleSmoothScroll(e, item.to, item.isExternal)}
                                     >
                                         {item.name}

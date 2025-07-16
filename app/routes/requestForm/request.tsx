@@ -196,7 +196,7 @@ const RequestForm = () => {
             <div style={{ backgroundImage: `url(${heroImage})` }} className="bg-cover bg-center bg-no-repeat py-4 w-full h-[80vh] absolute top-0 left-0 right-0">
             </div>
 
-            <div className="flex flex-col lg:flex-row px-4 pb-20 lg:px-60 relative z-10 mt-20 lg:mt-40 max-w-full overflow-hidden">
+            <div className="flex flex-col lg:flex-row px-4 pb-20 lg:px-60 relative z-10 mt-20 lg:mt-20 max-w-full overflow-hidden">
                 {/* Left Sidebar */}
                 <div className="w-full lg:w-1/3 bg-gradient-to-br rounded-t-2xl lg:rounded-tl-2xl lg:rounded-bl-2xl lg:rounded-tr-none from-blue-400 to-blue-600 flex items-center justify-center py-8 lg:py-0">
                     <div className="text-center text-white px-8">
@@ -218,13 +218,13 @@ const RequestForm = () => {
                 {/* Right Form Section */}
                 <div className="flex-1 flex flex-col rounded-b-2xl lg:rounded-tr-2xl lg:rounded-br-2xl lg:rounded-bl-none bg-white p-4 lg:p-8 min-w-0">
                     <div className="w-full max-w-2xl mx-auto">
-                        {/* Header */}
+                        {/* Static Header - Always Visible */}
                         <div className="text-center mb-8">
                             <h2 className="text-3xl font-bold font-heading text-gray-800 mb-2">
-                                {serviceSelected ? serviceContent.title : 'Select Your Service'}
+                                Select Your Service
                             </h2>
                             <p className="text-gray-600">
-                                {serviceSelected ? serviceContent.description : 'Choose from our comprehensive court services'}
+                                Choose from our comprehensive court services
                             </p>
                         </div>
 
@@ -240,39 +240,48 @@ const RequestForm = () => {
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                 <button
                                     onClick={() => handleServiceSelection('court-search')}
-                                    className={`flex items-center justify-between px-6 py-4 rounded-lg font-medium transition-colors duration-300 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
+                                    className={`flex items-center justify-center px-6 py-4 rounded-lg font-medium transition-all duration-300 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
                                         serviceType === 'court-search' 
-                                            ? 'bg-blue-600 text-white' 
-                                            : 'bg-blue-500 text-white hover:bg-blue-600'
+                                            ? 'bg-blue-600 text-white shadow-lg transform scale-105' 
+                                            : 'bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-300 shadow-md border-2 border-gray-200 hover:shadow-lg'
                                     }`}
                                 >
                                     <span>Court Search</span>
-                                    <ArrowRight className="w-5 h-5" />
                                 </button>
                                 <button
                                     onClick={() => handleServiceSelection('document-verification')}
-                                    className={`flex items-center justify-between px-6 py-4 rounded-lg font-medium transition-colors duration-300 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
+                                    className={`flex items-center justify-center px-6 py-4 rounded-lg font-medium transition-all duration-300 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
                                         serviceType === 'document-verification' 
-                                            ? 'bg-blue-600 text-white' 
-                                            : 'bg-blue-500 text-white hover:bg-blue-600'
+                                            ? 'bg-blue-600 text-white shadow-lg transform scale-105' 
+                                            : 'bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-300 shadow-md border-2 border-gray-200 hover:shadow-lg'
                                     }`}
                                 >
                                     <span>Verify of Court Documents</span>
-                                    <ArrowRight className="w-5 h-5" />
                                 </button>
                                 <button
                                     onClick={() => handleServiceSelection('document-request')}
-                                    className={`flex items-center justify-between px-6 py-4 rounded-lg font-medium transition-colors duration-300 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
+                                    className={`flex items-center justify-center px-6 py-4 rounded-lg font-medium transition-all duration-300 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
                                         serviceType === 'document-request' 
-                                            ? 'bg-blue-600 text-white' 
-                                            : 'bg-blue-500 text-white hover:bg-blue-600'
+                                            ? 'bg-blue-600 text-white shadow-lg transform scale-105' 
+                                            : 'bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-300 shadow-md border-2 border-gray-200 hover:shadow-lg'
                                     }`}
                                 >
                                     <span>Request for Court Documents</span>
-                                    <ArrowRight className="w-5 h-5" />
                                 </button>
                             </div>
                         </div>
+
+                        {/* Service-Specific Header - Show when service is selected */}
+                        {serviceSelected && (
+                            <div className="text-center mb-6">
+                                <h3 className="text-2xl font-bold font-heading text-blue-600 mb-2">
+                                    {serviceContent.title}
+                                </h3>
+                                <p className="text-gray-600">
+                                    {serviceContent.description}
+                                </p>
+                            </div>
+                        )}
 
                         {/* Form - Show when service is selected */}
                         {serviceSelected && (

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Upload, FileText, Check } from 'lucide-react';
+import { Upload, FileText, Check, ArrowRight } from 'lucide-react';
 import heroImage from '~/components/images/image1.avif';
 
 const RequestForm = () => {
@@ -12,9 +12,10 @@ const RequestForm = () => {
     });
 
     const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
-    const [serviceType, setServiceType] = useState('court-search'); // Default service type
+    const [serviceType, setServiceType] = useState(''); // Start with no service selected
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitMessage, setSubmitMessage] = useState('');
+    const [serviceSelected, setServiceSelected] = useState(false); // Track if user has selected a service
 
     // Get service type from URL parameters
     useEffect(() => {
@@ -22,8 +23,16 @@ const RequestForm = () => {
         const service = params.get('service');
         if (service) {
             setServiceType(service);
+            setServiceSelected(true); // If service is provided in URL, show form directly
         }
     }, []);
+
+    // Handle service selection
+    const handleServiceSelection = (service: string) => {
+        setServiceType(service);
+        setServiceSelected(true);
+        setSubmitMessage(''); // Clear any previous messages
+    };
 
     // Get service-specific content
     const getServiceContent = () => {
@@ -196,23 +205,27 @@ const RequestForm = () => {
                                 <FileText className="w-10 h-10 text-white" />
                             </div>
                         </div>
-                                <h1 className="text-2xl lg:text-3xl font-bold font-heading mb-4">
-                                Welcome to<br />
-                                <span className="text-3xl lg:text-4xl">SVD Services</span>
-                            </h1>
+                        <h1 className="text-2xl lg:text-3xl font-bold font-heading mb-4">
+                            Welcome to<br />
+                            <span className="text-3xl lg:text-4xl">SVD Services</span>
+                        </h1>
                         <p className="text-blue-100 text-base lg:text-lg leading-relaxed">
-                            {serviceContent.sidebarContent}
+                            {serviceSelected ? serviceContent.sidebarContent : 'Choose the service you need below'}
                         </p>
                     </div>
                 </div>
 
                 {/* Right Form Section */}
-                <div className="flex-1 flex items-center rounded-b-2xl lg:rounded-tr-2xl lg:rounded-br-2xl lg:rounded-bl-none bg-white justify-center p-4 lg:p-8 min-w-0">
-                    <div className="w-full max-w-2xl">
+                <div className="flex-1 flex flex-col rounded-b-2xl lg:rounded-tr-2xl lg:rounded-br-2xl lg:rounded-bl-none bg-white p-4 lg:p-8 min-w-0">
+                    <div className="w-full max-w-2xl mx-auto">
                         {/* Header */}
                         <div className="text-center mb-8">
-                            <h2 className="text-3xl font-bold font-heading text-gray-800 mb-2">{serviceContent.title}</h2>
-                            <p className="text-gray-600">{serviceContent.description}</p>
+                            <h2 className="text-3xl font-bold font-heading text-gray-800 mb-2">
+                                {serviceSelected ? serviceContent.title : 'Select Your Service'}
+                            </h2>
+                            <p className="text-gray-600">
+                                {serviceSelected ? serviceContent.description : 'Choose from our comprehensive court services'}
+                            </p>
                         </div>
 
                         {/* Success/Error Message */}
@@ -222,161 +235,202 @@ const RequestForm = () => {
                             </div>
                         )}
 
-                        {/* Form */}
-                        <form onSubmit={handleSubmit} className="bg-white p-4 lg:p-8 space-y-6">
-                            {/* Hidden input for service type */}
-                            <input type="hidden" name="serviceType" value={serviceType} />
-
-                            {/* Personal Information Section */}
-                            <div>
-                                <h3 className="text-lg font-semibold font-heading text-blue-600 mb-4">Your Personal Information</h3>
-
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                                            Name *
-                                        </label>
-                                        <input
-                                            type="text"
-                                            name="name"
-                                            value={formData.name}
-                                            onChange={handleInputChange}
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                            placeholder="Enter your full name"
-                                            required
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                                            Country
-                                        </label>
-                                        <input
-                                            type="text"
-                                            name="country"
-                                            value={formData.country}
-                                            onChange={handleInputChange}
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                            placeholder="Enter your country"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                                            Email *
-                                        </label>
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            value={formData.email}
-                                            onChange={handleInputChange}
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                            placeholder="Enter your email address"
-                                            required
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                                            Phone Number
-                                        </label>
-                                        <input
-                                            type="tel"
-                                            name="phoneNumber"
-                                            value={formData.phoneNumber}
-                                            onChange={handleInputChange}
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                            placeholder="Enter your phone number"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Comments Section */}
-                                <div className="mb-6">
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                                    Comments
-                                    </label>
-                                    <textarea
-                                    name="comments"
-                                    value={formData.comments}
-                                        onChange={handleInputChange}
-                                        rows={4}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                                    placeholder="Please provide any additional comments or details for your request..."
-                                    />
-                            </div>
-
-                            {/* File Upload Section - Only show for document-verification */}
-                            {serviceType === 'document-verification' && (
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-2">
-                                    Upload Supporting Documents
-                                </label>
-                                <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-400 transition-colors">
-                                    <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
-                                    <p className="text-sm text-gray-600 mb-2">Drag and drop your files here</p>
-                                    <p className="text-xs text-gray-500 mb-4">or click to browse files</p>
-                                    <input
-                                        type="file"
-                                        multiple
-                                        onChange={handleFileUpload}
-                                        className="hidden"
-                                        id="file-upload"
-                                        accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-                                    />
-                                    <label
-                                        htmlFor="file-upload"
-                                        className="inline-flex items-center px-4 py-2 bg-blue-50 text-blue-600 rounded-lg cursor-pointer hover:bg-blue-100 transition-colors"
-                                    >
-                                        <Upload className="w-4 h-4 mr-2" />
-                                        Browse Files
-                                    </label>
-                                </div>
-
-                                {/* Uploaded Files List */}
-                                {uploadedFiles.length > 0 && (
-                                    <div className="mt-4">
-                                        <h4 className="text-sm font-medium text-gray-700 mb-2">Uploaded Files:</h4>
-                                        <div className="space-y-2">
-                                            {uploadedFiles.map((file, index) => (
-                                                <div key={index} className="flex items-center justify-between space-x-2 text-sm text-gray-600 bg-gray-50 p-2 rounded">
-                                                    <div className="flex items-center space-x-2 min-w-0">
-                                                        <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
-                                                        <span className="truncate">{file.name}</span>
-                                                        <span className="text-xs text-gray-400 flex-shrink-0">
-                                                            ({(file.size / 1024 / 1024).toFixed(2)} MB)
-                                                        </span>
-                                                    </div>
-                                                    <button
-                                                        type="button"
-                                                        onClick={() => removeFile(index)}
-                                                        className="text-red-500 hover:text-red-700 text-xs ml-2 flex-shrink-0"
-                                                    >
-                                                        Remove
-                                                    </button>
-                                                </div>
-                                            ))}
-                                        </div>
-                                        <p className="text-xs text-gray-500 mt-2">
-                                            Supported formats: PDF, DOC, DOCX, JPG, PNG, TXT (Max 10MB each)
-                                        </p>
-                                    </div>
-                                )}
-                            </div>
-                            )}
-
-                            {/* Submit Button */}
-                            <div className="pt-6">
+                        {/* Fixed Service Selection Buttons - Always Visible */}
+                        <div className="mb-8">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                 <button
-                                    type="submit"
-                                    disabled={isSubmitting}
-                                    className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-300 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    onClick={() => handleServiceSelection('court-search')}
+                                    className={`flex items-center justify-between px-6 py-4 rounded-lg font-medium transition-colors duration-300 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
+                                        serviceType === 'court-search' 
+                                            ? 'bg-blue-600 text-white' 
+                                            : 'bg-blue-500 text-white hover:bg-blue-600'
+                                    }`}
                                 >
-                                    {isSubmitting ? 'Submitting...' : 'Submit Request'}
+                                    <span>Court Search</span>
+                                    <ArrowRight className="w-5 h-5" />
+                                </button>
+                                <button
+                                    onClick={() => handleServiceSelection('document-verification')}
+                                    className={`flex items-center justify-between px-6 py-4 rounded-lg font-medium transition-colors duration-300 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
+                                        serviceType === 'document-verification' 
+                                            ? 'bg-blue-600 text-white' 
+                                            : 'bg-blue-500 text-white hover:bg-blue-600'
+                                    }`}
+                                >
+                                    <span>Verify of Court Documents</span>
+                                    <ArrowRight className="w-5 h-5" />
+                                </button>
+                                <button
+                                    onClick={() => handleServiceSelection('document-request')}
+                                    className={`flex items-center justify-between px-6 py-4 rounded-lg font-medium transition-colors duration-300 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
+                                        serviceType === 'document-request' 
+                                            ? 'bg-blue-600 text-white' 
+                                            : 'bg-blue-500 text-white hover:bg-blue-600'
+                                    }`}
+                                >
+                                    <span>Request for Court Documents</span>
+                                    <ArrowRight className="w-5 h-5" />
                                 </button>
                             </div>
-                        </form>
+                        </div>
+
+                        {/* Form - Show when service is selected */}
+                        {serviceSelected && (
+                            <form onSubmit={handleSubmit} className="bg-white p-4 lg:p-8 space-y-6 border border-gray-200 rounded-lg">
+                                    {/* Hidden input for service type */}
+                                    <input type="hidden" name="serviceType" value={serviceType} />
+
+                                    {/* Personal Information Section */}
+                                    <div>
+                                        <h3 className="text-lg font-semibold font-heading text-blue-600 mb-4">Your Personal Information</h3>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                    Name *
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    name="name"
+                                                    value={formData.name}
+                                                    onChange={handleInputChange}
+                                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                                    placeholder="Enter your full name"
+                                                    required
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                    Country
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    name="country"
+                                                    value={formData.country}
+                                                    onChange={handleInputChange}
+                                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                                    placeholder="Enter your country"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                    Email *
+                                                </label>
+                                                <input
+                                                    type="email"
+                                                    name="email"
+                                                    value={formData.email}
+                                                    onChange={handleInputChange}
+                                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                                    placeholder="Enter your email address"
+                                                    required
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                    Phone Number
+                                                </label>
+                                                <input
+                                                    type="tel"
+                                                    name="phoneNumber"
+                                                    value={formData.phoneNumber}
+                                                    onChange={handleInputChange}
+                                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                                    placeholder="Enter your phone number"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Comments Section */}
+                                    <div className="mb-6">
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Comments
+                                        </label>
+                                        <textarea
+                                            name="comments"
+                                            value={formData.comments}
+                                            onChange={handleInputChange}
+                                            rows={4}
+                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                                            placeholder="Please provide any additional comments or details for your request..."
+                                        />
+                                    </div>
+
+                                    {/* File Upload Section - Only show for document-verification */}
+                                    {serviceType === 'document-verification' && (
+                                        <div>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                Upload Supporting Documents
+                                            </label>
+                                            <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-400 transition-colors">
+                                                <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
+                                                <p className="text-sm text-gray-600 mb-2">Drag and drop your files here</p>
+                                                <p className="text-xs text-gray-500 mb-4">or click to browse files</p>
+                                                <input
+                                                    type="file"
+                                                    multiple
+                                                    onChange={handleFileUpload}
+                                                    className="hidden"
+                                                    id="file-upload"
+                                                    accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                                                />
+                                                <label
+                                                    htmlFor="file-upload"
+                                                    className="inline-flex items-center px-4 py-2 bg-blue-50 text-blue-600 rounded-lg cursor-pointer hover:bg-blue-100 transition-colors"
+                                                >
+                                                    <Upload className="w-4 h-4 mr-2" />
+                                                    Browse Files
+                                                </label>
+                                            </div>
+
+                                            {/* Uploaded Files List */}
+                                            {uploadedFiles.length > 0 && (
+                                                <div className="mt-4">
+                                                    <h4 className="text-sm font-medium text-gray-700 mb-2">Uploaded Files:</h4>
+                                                    <div className="space-y-2">
+                                                        {uploadedFiles.map((file, index) => (
+                                                            <div key={index} className="flex items-center justify-between space-x-2 text-sm text-gray-600 bg-gray-50 p-2 rounded">
+                                                                <div className="flex items-center space-x-2 min-w-0">
+                                                                    <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                                                    <span className="truncate">{file.name}</span>
+                                                                    <span className="text-xs text-gray-400 flex-shrink-0">
+                                                                        ({(file.size / 1024 / 1024).toFixed(2)} MB)
+                                                                    </span>
+                                                                </div>
+                                                                <button
+                                                                    type="button"
+                                                                    onClick={() => removeFile(index)}
+                                                                    className="text-red-500 hover:text-red-700 text-xs ml-2 flex-shrink-0"
+                                                                >
+                                                                    Remove
+                                                                </button>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                    <p className="text-xs text-gray-500 mt-2">
+                                                        Supported formats: PDF, DOC, DOCX, JPG, PNG, TXT (Max 10MB each)
+                                                    </p>
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
+
+                                    {/* Submit Button */}
+                                    <div className="pt-6">
+                                        <button
+                                            type="submit"
+                                            disabled={isSubmitting}
+                                            className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-300 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                                        >
+                                            {isSubmitting ? 'Submitting...' : 'Submit Request'}
+                                        </button>
+                                    </div>
+                                </form>
+                            )}
 
                         {/* Footer Note */}
                         <div className="text-center mt-6">
@@ -387,8 +441,6 @@ const RequestForm = () => {
                     </div>
                 </div>
             </div>
-
-            
         </div>
     );
 };

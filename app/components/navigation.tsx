@@ -6,7 +6,7 @@ const navigation = [
     { name: "Home", to: "/", isExternal: true },
     { name: "Our Services", to: "#services", isExternal: false },
     { name: "Pricing", to: "/pricing", isExternal: true },
-    { name: "Request Form", to: "#service-cards", isExternal: false },
+    { name: "Request Form", to: "/requestForm/request", isExternal: true },
 ];
 export default function Navigation() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -14,7 +14,7 @@ export default function Navigation() {
 
     useEffect(() => {
         const handleScroll = () => {
-            const sections = ['about', 'how-it-works', 'who-can-benefit', 'our-commitment', 'services', 'service-cards'];
+            const sections = ['about', 'how-it-works', 'who-can-benefit', 'our-commitment'];
             const scrollPosition = window.scrollY + 100;
 
             for (const section of sections) {

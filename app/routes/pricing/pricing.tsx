@@ -48,7 +48,7 @@ const PricingPage = () => {
 
                         <div className="space-y-4 mb-8">
                             <div className="flex justify-between items-center border-b border-gray-100 pb-3">
-                                <span className="text-gray-700">High Court Per Registry</span>
+                                <span className="text-gray-700">High Court</span>
                                 <span className="text-2xl font-bold text-gray-900">400 GH₵</span>
                             </div>
                             <div className="flex justify-between items-center border-b border-gray-100 pb-3">
@@ -121,7 +121,7 @@ const PricingPage = () => {
                             </div>
                             <h3 className="text-2xl font-bold text-blue-600 mb-2">Document Request</h3>
                             <p className="text-gray-600 text-sm">
-                                Custom document procurement and legal documents and certificates
+                               Request for court related documents
                             </p>
                         </div>
 

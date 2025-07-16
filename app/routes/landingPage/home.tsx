@@ -313,8 +313,8 @@ const Home = () => {
                             {/* CTA Buttons with Staggered Animation */}
                             <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 delay-700 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                                 }`}>
-                                <a href="/requestForm/request" className={`customed-button text-md py-2 hover:bg-[#2a9bd4] !rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-lg px-8 py-4 ${isVisible ? 'animate-bounce-in' : ''} text-center`}>
-                                    Request Court Search
+                                <a href="#service-cards" className={`customed-button text-md py-2 hover:bg-[#2a9bd4] !rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-lg px-8 py-4 ${isVisible ? 'animate-bounce-in' : ''} text-center`}>
+                                    Request For Document
                                     {/* icon */}
                                 </a>
                                 <a href="/pricing" className={`customed-bordered-button !text-md py-2 border-white transform !rounded-full hover:scale-105 transition-all duration-300 !text-white px-8 py-4  delay-200 ${isVisible ? 'animate-slide-in-right' : ''} text-center`}>
@@ -354,7 +354,8 @@ const Home = () => {
             {/* Services Section with Scroll Animations */}
             <div id="services" className='bg-gradient-to-r from-blue-50 to-white min-h-screen pt-20'>
 
-                <section  ref={servicesRef} className="container mx-auto px-4 py-8 md:py-16 flex flex-col gap-8 md:gap-12">
+                <section                             id='service-cards'
+  ref={servicesRef} className="container mx-auto px-4 py-8 md:py-16 flex flex-col gap-8 md:gap-12">
                     {/* Services Title with Scroll Animation */}
                     <h1
                         ref={servicesTitleRef}
